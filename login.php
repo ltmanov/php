@@ -21,9 +21,9 @@ $password=$_GET['password'];
 
 <?php
 
-echo "Username was: "+$username;
+echo "Username was: ".$username;
 echo "<br>";
-echo "Password was "+$password;
+echo "Password was ".$password;
 
  ?>
 
