@@ -3,13 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+<?php
+$username=$_GET['username'];
+$password=$_GET['password'];
+
+?>
+
   </head>
   <body>
     <form method="get" action="">
-      <input type="text" name="first" value="First"><br />
-      <input type="text" name="last" value="LAST">
-      <input type="submit" value="go">
+      <input type="text" name="username" placeholder="Enter Username..."><br />
+      <input type="password" name="password">
+      <br />
+      <input type="submit" value="Enter">
     </form>
+
+<?php
+
+echo "Username was: "+$username;
+echo "<br>";
+echo "Password was "+$password;
+
+ ?>
 
   </body>
 </html>
