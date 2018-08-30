@@ -16,7 +16,7 @@ $password=$_GET['password'];
       <input type="text" name="username" placeholder="Enter Username..."><br />
       <input type="password" name="password">
       <br />
-      <input type="submit" value="Enter">
+      <input type="submit" value="go">
     </form>
 
 <?php
