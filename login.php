@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <title></title>
 
-<?php
-$username=$_POST['username'];
-$password=$_POST['password'];
 
-?>
 
   </head>
   <body>
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username..."><br />
-      <input type="password" name="password">
+      <input type="password" name="password" value="" >
       <br />
       <input type="submit" value="go">
     </form>
+<?php
+    $username=$_POST['username'];
+    $password=$_POST['password'];
 
+    ?>
 <?php
 if (isset($username)==true){
   echo "Username was: ".$username;
