@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -25,7 +26,7 @@ if (isset($username) && isset($password))
   //echo "Username was ".$username;
   //echo "<br>";
   //echo "Password was ".$password;
-  if ($username == "lev" && $password ="password")
+  if ($username == "lev" && $password ="pass")
   {
     $_SESSION['Username']=$username;
   }
