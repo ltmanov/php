@@ -30,7 +30,7 @@ if (isset($username) && isset($password))
     $_SESSION['Username']=$username;
   }
 
-  echo "Logged in as: ".$_SESSION['username'];
+  echo "Logged in as: ". $_SESSION['username'];
 
 }
 
