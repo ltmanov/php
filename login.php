@@ -20,12 +20,13 @@ $password=$_POST['password'];
     </form>
 
 <?php
-if (isset($username) && isset($password)) {
+if (isset($username) {
   echo "Username was: ".$username;
-  echo "<br>";
-  echo "Password was ".$password;
-} else {
-  // code...
+//  echo "<br>";
+//  echo "Password was ".$password;
+}
+if (isset($password)){
+  echo $username;
 }
 
  ?>
