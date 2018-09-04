@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-//makes post variables
+<!--makes post variables-->
     <?php
         $username=$_POST['username'];
         $password=$_POST['password'];
@@ -13,7 +13,7 @@
           unset($_SESSION['username']);
         }
         ?>
-//body section
+<!--body section-->
   </head>
   <body>
     <form method="post" action="">
@@ -22,13 +22,13 @@
       <input type="password" name="password" >
       <br />
       <input type="submit" value="go">
-      <input type="submit" name="logout" value="logout">//value is text on button, submit makes pages reload
+      <input type="submit" name="logout" value="logout"><!--value is text on button, submit makes pages reload-->
     </form>
-//password creation
+<!--password creation-->
 <?php
 if (isset($username) && isset($password))
 {
-  //echo "Username was ".$username;
+  //"Username was ".$username;
   //echo "<br>";
   //echo "Password was ".$password;
   if ($username == "lev" && $password ="pass")
