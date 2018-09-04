@@ -1,2 +1,2 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 YOU ARE LOGGED IN AS <? echo $_SESSION['username']; ?> .
