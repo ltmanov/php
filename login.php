@@ -31,7 +31,7 @@ if (isset($username) && isset($password))
   //"Username was ".$username;
   //echo "<br>";
   //echo "Password was ".$password;
-  if ($username == "lev" && $password ="pass")
+  if ($username == "lev" && $password == "pass")
   {
     $_SESSION['username']=$username;
     echo "Logged in as: ". $_SESSION['username'];
