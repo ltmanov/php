@@ -8,6 +8,10 @@
     <?php
         $username=$_POST['username'];
         $password=$_POST['password'];
+
+        if (isset($_POST['logout'])) {
+          unset($_SESSION['username']);
+        }
         ?>
 //body section
   </head>
@@ -18,6 +22,7 @@
       <input type="password" name="password" >
       <br />
       <input type="submit" value="go">
+      <input type="submit" name="logout" value="logout">//value is text on button, submit makes pages reload
     </form>
 //password creation
 <?php
@@ -29,9 +34,10 @@ if (isset($username) && isset($password))
   if ($username == "lev" && $password ="pass")
   {
     $_SESSION['username']=$username;
+    echo "Logged in as: ". $_SESSION['username'];
   }
 
-  echo "Logged in as: ". $_SESSION['username'];
+
 
 }
 
