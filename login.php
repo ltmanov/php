@@ -1,7 +1,15 @@
 <?php
-session_start(); 
+session_start();
 // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
+
+if(isset($_POST['username'])){
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+}
+
+$sql="SELECT username, password FROM users WHERE username= $username";
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
