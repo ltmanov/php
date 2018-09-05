@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php
+session_start(); 
+// can use require-NEEDED or include
+require('dbconnection.php'); //die can kill this page as well
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
