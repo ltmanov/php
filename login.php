@@ -6,11 +6,12 @@ require('dbconnection.php'); //die can kill this page as well
 if(isset($_POST['username'])){
   $username=$_POST['username'];
   $password=$_POST['password'];
+
+
+  $sql="SELECT username, password FROM users WHERE username= $username";
 }
-
-$sql="SELECT username, password FROM users WHERE username= $username";
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
