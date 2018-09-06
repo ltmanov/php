@@ -16,10 +16,10 @@ require('dbconnection.php'); //die can kill this page as well
     echo "Got this far 3!";
     while ( $row = $result->fetch_assoc()) )//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
-      if (($username == $row['username']) && ($password == $row['password'])
-        {//row is database value
-          $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
-        }
+    //  if (($username == $row['username']) && ($password == $row['password'])
+        // {//row is database value
+        //   $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
+        // }
     }
     echo "Got this far 4!";
     //$result->free();
