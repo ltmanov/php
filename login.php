@@ -17,7 +17,7 @@ require('dbconnection.php'); //die can kill this page as well
 
 
 
-    while ( $row = $result->fetch_assoc() )//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
+    while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
       $user = $row['username'];
       $pass = $row['password'];
