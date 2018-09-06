@@ -13,7 +13,7 @@ if(isset($_POST['username']))
     if (($username == $row['username']) && ($password == $row['password']) {
       //row is database value
           $_SESSION['username']=$username;
-          //$_SESSION['password']=$password;
+          $_SESSION['password']=$password;
       }
     }
 }
