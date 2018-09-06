@@ -2,6 +2,9 @@
 session_start(); // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
 
+$username=$_POST['username'];
+$password=$_POST['password'];
+
 if(isset($_POST['username']))
   {
     $username=$_POST['username'];
@@ -38,7 +41,7 @@ if(isset($_POST['username']))
         if (isset($_POST['logout'])) {
           unset($_SESSION['username']);
         }
-        ?>
+    ?>
 <!--body section-->
   </head>
   <body>
