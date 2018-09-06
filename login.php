@@ -22,8 +22,8 @@ require('dbconnection.php'); //die can kill this page as well
     //     }
     //}
     echo "Got this far 4!";
-    $result->free();
-    //$mysqli->close();
+    //$result->free();
+    $mysqli->close();
     echo "Got this far 5!";
   //}
 
