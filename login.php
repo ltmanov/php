@@ -6,6 +6,7 @@ if(isset($_POST['username']))
   {
     $username=$_POST['username'];
     $password=$_POST['password'];
+    echo "Got this far 1!";
     //sql statement to execute
     $sql="SELECT username, password FROM users WHERE username = $username";
     // //execute the sql and return the array to $result
@@ -17,30 +18,11 @@ if(isset($_POST['username']))
     //       $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
     //     }
     //}
-
-    if ($result = $mysqli->query($sql)) {
-
-        /* fetch associative array */
-        while ($row = $result->fetch_assoc()) {
-            //printf ($row['username'], $row['password']);
-
-              if (($username == $row['username']) && ($password == $row['password'])
-                {//row is database value
-                  $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
-                }
-
-
-        }
-
-        /* free result set */
-        $result->free();
-    }
-
-    /* close connection */
+    $result->free();
     $mysqli->close();
-
-
+    echo "Got this far 2!";
   }
+
 ?>
 
 <!DOCTYPE html>
