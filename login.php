@@ -2,11 +2,9 @@
 session_start(); // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
 
-$username=$_POST['username'];
-$password=$_POST['password'];
 
-if(isset($_POST['username']))
-  {
+//if(isset($_POST['username']))
+//  {
     $username=$_POST['username'];
     $password=$_POST['password'];
     echo "Got this far 1!";
@@ -24,7 +22,7 @@ if(isset($_POST['username']))
     $result->free();
     $mysqli->close();
     echo "Got this far 2!";
-  }
+  //}
 
 ?>
 
