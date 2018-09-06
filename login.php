@@ -22,7 +22,9 @@ if(isset($_POST['username']))
 
         /* fetch associative array */
         while ($row = $result->fetch_assoc()) {
-            echo ("%s (%s)\n", $row["username"], $row["password"]);
+            //printf ("%s (%s)\n", $row["username"], $row["password"]);
+            echo "$row["username"]";
+            echo "$row["password"]";
         }
 
         /* free result set */
