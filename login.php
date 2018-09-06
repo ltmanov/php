@@ -9,7 +9,7 @@ if(isset($_POST['username']))
   $sql="SELECT username, password FROM users WHERE username = $username";
   //execute the sql and return the array to $result
   $result = $conn->query($sql);   //extracting the returned query information
-  while ($row as $result->fetch_assoc()) {//loops through all the values in the arrays
+  while ($row = $result->fetch_assoc()) {//loops through all the values in the arrays
     if (($username == $row['username']) && ($password == $row['password']) {
       //row is database value
           $_SESSION['username']=$username;
