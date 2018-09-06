@@ -14,13 +14,13 @@ require('dbconnection.php'); //die can kill this page as well
     // //execute the sql and return the array to $result
     $result = $conn->query($sql);   //extracting the returned query information
     echo "Got this far 3!";
-    //while ( $row = $result->fetch_assoc()) )//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
-    // {//loops through all the values in the arrays
-    //   if (($username == $row['username']) && ($password == $row['password'])
-    //     {//row is database value
-    //       $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
-    //     }
-    //}
+    while ( $row = $result->fetch_assoc()) )//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
+    {//loops through all the values in the arrays
+      if (($username == $row['username']) && ($password == $row['password'])
+        {//row is database value
+          $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
+        }
+    }
     echo "Got this far 4!";
     //$result->free();
     //$mysqli->close();
