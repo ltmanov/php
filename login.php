@@ -6,9 +6,19 @@ require('dbconnection.php'); //die can kill this page as well
 if(isset($_POST['username'])){
   $username=$_POST['username'];
   $password=$_POST['password'];
-
-
+  //sql statement to execute
   $sql="SELECT username, password FROM users WHERE username= $username";
+  //execute the sql and return the array to $result
+  $result = $conn->query($sql);
+
+  //extracting the returned query information
+  while ($row as $result->fetch_assoc()) {//loops through all the values in the arrays
+    if ($username == $row['username'] && ($password == $row['password']) {
+      //row is database value
+          $_SESSION['username']=$username;
+          $_SESSION['password']=$password;
+      }
+    }
 }
 ?>
 
@@ -39,21 +49,7 @@ if(isset($_POST['username'])){
     </form>
 <!--password creation-->
 <?php
-if (isset($username) && isset($password))
-{
-  //"Username was ".$username;
-  //echo "<br>";
-  //echo "Password was ".$password;
-  if ($username == "lev" && $password == "pass")
-  {
-    $_SESSION['username']=$username;
-    echo "Logged in as: ". $_SESSION['username'];
-  }
-
-
-
-}
-
+echo "Logged in as: ". $_SESSION['username'];
  ?>
 
   </body>
