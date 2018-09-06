@@ -22,7 +22,14 @@ if(isset($_POST['username']))
 
         /* fetch associative array */
         while ($row = $result->fetch_assoc()) {
-            printf ($row['username'], $row['password']);
+            //printf ($row['username'], $row['password']);
+
+              if (($username == $row['username']) && ($password == $row['password'])
+                {//row is database value
+                  $_SESSION['username']=$username;//used to authenticate our session to stay logged in;
+                }
+
+
         }
 
         /* free result set */
