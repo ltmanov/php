@@ -16,7 +16,7 @@ if(isset($_POST['username']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
-    }
+    }//
 ?>
 
 <!DOCTYPE html>
