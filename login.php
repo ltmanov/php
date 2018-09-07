@@ -2,20 +2,17 @@
 session_start(); // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
 
-
 if(isset($_POST['username']))
   {
     $username=$_POST['username'];
     $password=$_POST['password'];
     //sql statement to execute
-    $sql="SELECT username, password FROM users WHERE username = '$username'";
+    $sql="SELECT username, password FROM users WHERE username = '$username'";//vars must be '' for sql
     // //execute the sql and return the array to $result
     $result = $conn->query($sql);   //extracting the returned query information
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
-      $user = $row['username'];
-      $pass = $row['password'];
-        if (($user == $username) && ($password == $pass))
+        if (($username == $row['username']) && ($password == $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
