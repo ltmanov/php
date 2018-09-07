@@ -17,6 +17,7 @@ if(isset($_POST['username']))
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
     }//
+  }
 ?>
 
 <!DOCTYPE html>
