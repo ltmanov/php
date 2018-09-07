@@ -7,16 +7,11 @@ require('dbconnection.php'); //die can kill this page as well
 //  {
     $username=$_POST['username'];
     $password=$_POST['password'];
-    echo "Got this far 1!";
+
     //sql statement to execute
-    $sql="SELECT username, password FROM users WHERE username = $username";
-    echo "Got this far 2!";
+    $sql='SELECT username, password FROM users WHERE username = $username';
     // //execute the sql and return the array to $result
     $result = $conn->query($sql);   //extracting the returned query information
-    echo "Got this far 3!";
-
-
-
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
       $user = $row['username'];
@@ -26,12 +21,6 @@ require('dbconnection.php'); //die can kill this page as well
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
     }
-    echo "Got this far 4!";
-    //$result->free();
-    //$mysqli->close();
-    echo "Got this far 5!";
-  //}
-
 ?>
 
 <!DOCTYPE html>
