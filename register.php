@@ -3,7 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
    require('dbconnection.php');
    $username=$_POST['username'];
-   $passowrd=$_POST['password'];
+   $password=$_POST['password'];
    $sql="INSERT INTO users (username, password) VALUES ('$username','$password')";
    $conn->query($sql);
 }
