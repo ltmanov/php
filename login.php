@@ -12,7 +12,7 @@ if(isset($_POST['username']))
     $result = $conn->query($sql);   //extracting the returned query information
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
-        if (($username == $row['username']) && ($password == $row['password']))
+        if (($username == $row['username']) && password_verify($password, $row['password'])) 
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
