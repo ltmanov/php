@@ -8,11 +8,11 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
-//var_dump($_FILES['upload']); - shows what variable is
+var_dump($_FILES['upload']);// shows what variable is
 // echo "<hr />"
 if ( isset($_FILES['upload']) ) {
 $target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES['upload']['name']);
+$target_file = $target_dir.basename($_FILES['upload']['name']);
 move_uploaded_file($_FILES['upload']['name'], $target_file);
 }
 
