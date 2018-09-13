@@ -40,10 +40,10 @@ if(isset($_POST['username']))
 
     <a href="register.php">Register</a>
     <?php
-    if ($_SESSION['username']){
+    if ( isset($_SESSION['username'])){
     echo "<a href=\"upload.php\">| Upload</a>";
-  }
-  ?>
+    }
+    ?>
     <br />
 
     <form method="post" action="">
