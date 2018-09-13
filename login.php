@@ -12,7 +12,7 @@ if(isset($_POST['username']))
     $result = $conn->query($sql);   //extracting the returned query information
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
-        if (($username == $row['username']) && password_verify($password, $row['password'])) 
+        if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
@@ -33,10 +33,23 @@ if(isset($_POST['username']))
         if (isset($_POST['logout'])) {
           unset($_SESSION['username']);
         }
+
+function login_check(){
+  if ($_SESSION['username']==$username)
+  document.getElementById('upload_loggedin').style='block';
+}
+
+
+
     ?>
 <!--body section-->
   </head>
-  <body>
+  <body onload="login_check()">
+
+    <a href="register.php">Register</a>
+    <a id="upload_loggedin" style="none" href="upload.php">| Upload</a>
+    <br />
+
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username...">
       <br />
