@@ -33,7 +33,6 @@ if(isset($_POST['username']))
         if (isset($_POST['logout'])) {
           unset($_SESSION['username']);
         }
-
     ?>
 <!--body section-->
   </head>
@@ -41,8 +40,8 @@ if(isset($_POST['username']))
 
     <a href="register.php">Register</a>
     <?php
-    if ($_SESSION['username']==$username)
-    echo "<a id="upload_loggedin" style="none" href='upload.php'>| Upload</a>"
+    if ($_SESSION['username']){
+    echo "  <a id=\"upload_loggedin" href="upload.php\">| Upload</a>"}
     ?>
     <br />
 
