@@ -41,8 +41,9 @@ if(isset($_POST['username']))
     <a href="register.php">Register</a>
     <?php
     if ($_SESSION['username']){
-    echo "  <a id=\"upload_loggedin" href="upload.php\">| Upload</a>"};
-    ?>
+    echo "  <a id=\"upload_loggedin" href="upload.php\">| Upload</a>";
+  }
+  ?>
     <br />
 
     <form method="post" action="">
