@@ -34,20 +34,16 @@ if(isset($_POST['username']))
           unset($_SESSION['username']);
         }
 
-function login_check(){
-  if ($_SESSION['username']==$username)
-  document.getElementById('upload_loggedin').style='block';
-}
-
-
-
     ?>
 <!--body section-->
   </head>
-  <body onload="login_check()">
+  <body>
 
     <a href="register.php">Register</a>
-    <a id="upload_loggedin" style="none" href="upload.php">| Upload</a>
+    <?php
+    if ($_SESSION['username']==$username)
+    echo "<a id="upload_loggedin" style="none" href='upload.php'>| Upload</a>"
+    ?>
     <br />
 
     <form method="post" action="">
