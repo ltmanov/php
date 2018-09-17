@@ -16,19 +16,31 @@ $target_file = $target_dir . basename($_FILES['upload']['name']);//location to p
 $uploadVerification=true;
 
 //check to see if file exists
-if (file_exists($target_file)) {
-  $uploadVerification=false;
-  $ret = "Sorry file already exists";
+if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+
+//$finfo = finfo_open(FILEINFO_MIME_TYPES);
+$file_type = $_FILES['upload']['tmp_file'];
+switch ($file_type) {
+  case "image/jpeg":
+    $uploadVerification=true;
+    break;
+  case "image/png":
+    $uploadVerification=true;
+    break;
+  case "image/gif":
+    $uploadVerification=true;
+    break;
+  case "application/pdf":
+    $uploadVerification=true;
+    break;
+  default:
+    $uploadVerification=false;
+    $ret = "Sorry only jpg, png, gif, pdf files are allowed.";
 }
 
-if ($_FILES['upload']['size']) > 1000000){
-  $uploadVerification=false;
-  $ret = "Sorry file is too big";
-}
+// if ($_FILES['upload']['size']) > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-  if ($uploadVerification){
-    move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-  }
+if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 }
  ?>
 
