@@ -38,7 +38,7 @@ switch ($file_type) {
     $ret = "Sorry only jpg, png, gif, pdf files are allowed.";
 }
 
-// if ($_FILES['upload']['size']) > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
+if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
 if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 }
