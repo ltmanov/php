@@ -13,10 +13,8 @@ var_dump($_FILES['upload']);// shows what variable is
 if ( isset($_FILES['upload']) ) {
 //<php $folder = date("Ymd");mkdir ($folder, 0755);
 if (mkdir("uploads/", 0777, true)) {
-    
-}
 
-mkdir()
+}
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
 $uploadVerification=true;
