@@ -11,8 +11,11 @@ if (!isset($_SESSION['username']))
 var_dump($_FILES['upload']);// shows what variable is
 // echo "<hr />"
 if ( isset($_FILES['upload']) ) {
-//<php $folder = date("Ymd");mkdir ($folder, 0755);
-//if (mkdir("uploads/", 0777, true)) {}//creates folder if it is not present
+  if ( !file_exists("uploads")){
+    //if uploads doesnt exist, make it
+    mkdir("./uploads");
+  }
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
 $uploadVerification=true;
