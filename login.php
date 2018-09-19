@@ -43,6 +43,9 @@ if(isset($_POST['username']))
     if ( isset($_SESSION['username'])){
     echo "<a href=\"upload.php\">| Upload</a>";
     }
+    if ( isset($_SESSION['username'])){
+    echo "<a href=\"users.php\">| Users</a>";
+    }
     ?>
     <br />
 
