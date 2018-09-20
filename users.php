@@ -37,11 +37,11 @@ $conn->close();
 <?php
 while ($row = $result->fetch_assoc())
 {
-  <tr>
-    <td>$row['userid']</td>
-    <td>$row['username']</td>
-    <td>$row['password']</td>
-  </tr>
+  echo "<tr>";
+    echo "<td>" . $row['userid'] . "</td>";
+    echo "<td>" . $row['username'] . "</td>";
+    echo "<td>" . $row['password'] . "</td>";
+  echo "</tr>";
 }
 ?>
 
