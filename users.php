@@ -43,12 +43,12 @@ while ($row = $result->fetch_assoc())
     echo "<td>" . $row['userid'] . "</td>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['password'] . "</td>";
-    echo "
+    echo "<td>
                   <form action="" method="post">
                     <input type="text">
                     <input type="submit">
                   </form>
-    ";
+    </td>";
   echo "</tr>";
 }
 ?>
