@@ -14,6 +14,8 @@ require('dbconnection.php');
 $sql = "SELECT * from users";
 //execute the query
 $result = $conn->query($sql);   //extracting the returned query information
+
+
 //close db con
 $conn->close();
  ?>
@@ -27,11 +29,11 @@ $conn->close();
    <body>
 
 <table>
-
   <tr>
     <th>User Id </th>
     <th>Username </th>
     <th>Password Hash </th>
+    <th>Action</th>
   </tr>
 
 <?php
@@ -41,9 +43,16 @@ while ($row = $result->fetch_assoc())
     echo "<td>" . $row['userid'] . "</td>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['password'] . "</td>";
+    echo "<td>Delete</td>";
   echo "</tr>";
 }
 ?>
+</table>
+
+<form class="" action="" method="post">
+  <input type="text">
+  <input type="submit">
+</form>
 
    </body>
  </html>
