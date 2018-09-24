@@ -12,7 +12,7 @@ if (!isset($_SESSION['username']))//check to see session is started
 require('dbconnection.php');
 if (isset($_POST['id'] && isset($_POST['delete'])){
 $sql = "DELETE FROM users WHERE userid = " . $_POST['id'];
-  
+$result = $conn->query($sql);
 }
 
 //create sql query
