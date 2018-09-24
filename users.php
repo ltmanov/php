@@ -58,7 +58,7 @@ while ($row = $result->fetch_assoc())
     echo "<td>
                 <form action=\"\" method=\"post\">
                   <input name=\"id\" type=\"hidden\" value=\"" . $row[userid] . "\">
-                  <input type=\"submit\" value=\"Delete\" name=\"delete\">
+                  <input type=\"submit\" value=\"delete\" name=\"delete\">
                 </form>
             </td>";
   echo "</tr>";
