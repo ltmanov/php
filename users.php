@@ -10,8 +10,13 @@ if (!isset($_SESSION['username']))//check to see session is started
 
 //bring database fann_get_total_connections
 require('dbconnection.php');
+if (isset($_POST['id'] && isset($_POST['delete'])){
+$sql = "DELETE FROM users WHERE userid = " . $_POST['id'];
+  
+}
+
 //create sql query
-$sql = "SELECT * from users";
+$sql = "SELECT * FROM users";
 //execute the query
 $result = $conn->query($sql);   //extracting the returned query information
 
@@ -46,15 +51,13 @@ while ($row = $result->fetch_assoc())
     echo "<td>
                   <form action=\"\" method=\"post\">
                     <input name=\"id\" type=\"hidden\" value=\"" . $row[userid] . "\">
-                    <input type=\"submit\" value=\"Delete\">
+                    <input type=\"submit\" value=\"Delete\" name=\"delete\">
                   </form>
             </td>";
   echo "</tr>";
 }
 ?>
 </table>
-
-
 
    </body>
  </html>
