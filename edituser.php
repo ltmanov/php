@@ -17,7 +17,7 @@ echo "<form action=\"\" method=\"post\">";
 
 while ($row = $result->fetch_assoc())
 {
-  echo "<input type=\"text\" disabled value=\"$row['userid']\">";
+  echo "<input type=\"text\" disabled value=\"" . $row['userid'] . "\">";
 
 }
 else{
