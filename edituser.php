@@ -8,18 +8,22 @@ if (!isset($_SESSION['username']))//check to see session is started
   header('Location: login.php');
 }
 if (isset($_GET['id']) && $_GET['edit']=="edit"){
-require('dbconnection.php');
+  require('dbconnection.php');
 
-$sql ="SELECT * FROM users WHERE userid = " . $_GET['id'] . ";" ;
-$result = $conn->query($sql);
+  $sql ="SELECT * FROM users WHERE userid = " . $_GET['id'] . ";" ;
+  $result = $conn->query($sql);
 
-echo "<form action=\"\" method=\"post\">";
+  echo "<form action=\"\" method=\"post\">";
 
-while ($row = $result->fetch_assoc())
-{
-  echo "<input type=\"text\" disabled value=\"" . $row['userid'] . "\">";
+  while ($row = $result->fetch_assoc())
+  {
+    echo "<input type=\"text\" disabled value=\"" . $row['userid'] . "\">";
+    echo "<br />";
+    echo "<input type=\"text\" value=\"" . $row['username'] . "\">";
+    echo "<br />";
+    echo "<input type=\"text\" value=\"" . $row['password'] . "\">";
 
-}
+  }
 else{
   echo "You should not be here.";}
 
