@@ -19,9 +19,6 @@ while ($row = $result->fetch_assoc())
 {
   echo "<input type=\"text\" disabled value=\"$row['userid']\"">";
 
-    $row['username'] . "</td>";
-    $row['password'] . "</td>";
-    
 }
 else{  echo "You should not be here.";}
 
