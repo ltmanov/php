@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']))//check to see session is started
 if (isset($_GET['id']) && $_GET['edit']=="edit"){
   require('dbconnection.php');
 
-  $sql ="SELECT * FROM users WHERE userid = " . $_GET['id'] . ";" ;
+  $sql ="SELECT * FROM users WHERE userid = " . $_GET['id'];
   $result = $conn->query($sql);
 
   echo "<form action=\"\" method=\"post\">";
