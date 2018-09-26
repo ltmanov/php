@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']))//check to see session is started
 if (isset($_GET['id']) && $_GET['edit']=="edit"){
   require('dbconnection.php');
 
-  if (isset($_POST['username']) && isset($_POST['submit']))
+  if (isset($_POST['submit']))
   {
 
     echo ("|POST ID IS: ");
@@ -22,7 +22,7 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
     echo (" |POST password IS: ");
     echo ($_POST['password']);
 
-    $sql ="UPDATE users SET username='".$_POST['username']."' WHERE userid = " . $_POST['userid'];
+    $sql ="UPDATE users SET username='".$_POST['username']."', password='".$_POST['password']."' WHERE userid = " . $_POST['userid'];
     $result = $conn->query($sql);
   }
 
