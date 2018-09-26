@@ -14,11 +14,11 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
   {
     $sql ="UPDATE users SET username=". $_POST['username'] . " WHERE userid = " . $_POST['userid'];
     $result = $conn->query($sql);
-    echo ("|POST ID IS");
+    echo ("|POST ID IS: ");
     echo ($_POST['userid']);
-    echo (" |POST username IS");
+    echo (" |POST username IS: ");
     echo ($_POST['username']);
-    echo (" |POST password IS");
+    echo (" |POST password IS: ");
     echo ($_POST['password']);
 
   }
