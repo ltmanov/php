@@ -12,12 +12,13 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
 
   if (isset($_POST['username']) && isset($_POST['submit']))
   {
-    $sql ="UPDATE users SET username=". $_POST['username'] . " WHERE userid = " . $_POST['userid']. ";" ;
+    //$sql ="UPDATE users SET username=". $_POST['username'] . " WHERE userid = " . $_POST['userid']. ";" ;
+    $sql ="UPDATE users SET username=$_POST['username'] WHERE userid =$_POST['userid']";
     $result = $conn->query($sql);
 
     echo ("|POST ID IS: ");
     echo ($_POST['userid']);
-    
+
     echo (" |POST username IS: ");
     echo ($_POST['username']);
 
