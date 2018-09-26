@@ -14,7 +14,8 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
   {
     $sql ="UPDATE users SET username=". $_POST['username'] . " WHERE userid = " . $_POST['userid'];
     $result = $conn->query($sql);
-    echo ("user id is: ".$_POST['userid'])
+    echo ("POST ID IS");
+    echo ($_POST['userid']);
   }
 
 
