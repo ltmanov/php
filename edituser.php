@@ -22,7 +22,7 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
     echo (" |POST password IS: ");
     echo ($_POST['password']);
 
-    $sql ="UPDATE users SET username=". $_POST['username'] . " WHERE userid = " . $_POST['userid']. ";" ;
+    $sql ="UPDATE users SET username='$_POST['username']' WHERE userid ='$_POST['userid']';";
     $result = $conn->query($sql);
   }
 
