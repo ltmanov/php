@@ -10,6 +10,13 @@ if (!isset($_SESSION['username']))//check to see session is started
 if (isset($_GET['id']) && $_GET['edit']=="edit"){
   require('dbconnection.php');
 
+  if (isset($_POST['username']) && isset($_POST['submit']))
+  {
+    $sql ="UPDATE users SET username=". $_POST['username'] . " WHERE password = " . $_POST['password'];
+    $result = $conn->query($sql);
+  }
+
+
   $sql ="SELECT * FROM users WHERE userid = " . $_GET['id'];
   $result = $conn->query($sql);
 
