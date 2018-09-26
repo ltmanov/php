@@ -17,8 +17,10 @@ if (isset($_GET['id']) && $_GET['edit']=="edit"){
 
     echo ("|POST ID IS: ");
     echo ($_POST['userid']);
+    
     echo (" |POST username IS: ");
     echo ($_POST['username']);
+
     echo (" |POST password IS: ");
     echo ($_POST['password']);
 
