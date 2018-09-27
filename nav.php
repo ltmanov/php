@@ -12,4 +12,5 @@ if (!isset($_SESSION['username']))//check to see session is started
  <a href="register.php">| Register</a>
  <a href="upload.php">| Upload</a>
  <a href="users.php">| Users</a>
+ <a href="login.php">| Log In</a>
  <br />
