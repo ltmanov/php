@@ -15,7 +15,7 @@ if(isset($_POST['username']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
-           require('nav.php');
+
          }
     }//
   }
@@ -38,7 +38,7 @@ if(isset($_POST['username']))
 <!--body section-->
   </head>
   <body>
-
+    <<?php require('nav.php'); ?>
     <!-- <a href="register.php">Register</a>
     <?php
     if ( isset($_SESSION['username'])){
