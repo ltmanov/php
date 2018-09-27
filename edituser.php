@@ -10,6 +10,8 @@ if (!isset($_SESSION['username']))//check to see session is started
 if (isset($_GET['id']) && $_GET['edit']=="edit"){
   require('dbconnection.php');
 
+require('nav.php');
+
   if (isset($_POST['submit']))
   {
 

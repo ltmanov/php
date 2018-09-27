@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']))//check to see session is started
 
 //bring database fann_get_total_connections
 require('dbconnection.php');
-
+require('nav.php');
 if (isset($_POST['id']) && isset($_POST['delete'])) {
 $sql = "DELETE FROM users WHERE userid = " . $_POST['id'] . ";" ;
 $result = $conn->query($sql);

@@ -7,6 +7,7 @@ if (!isset($_SESSION['username']))
 {//die("Don't even think about it")
   header('Location: login.php');
 }
+require('nav.php');
 
 var_dump($_FILES['upload']);// shows what variable is
 // echo "<hr />"

@@ -1,7 +1,9 @@
 <?php
+require('nav.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
    require('dbconnection.php');
+   require('nav.php');
    $username=$_POST['username'];
    $password=$_POST['password'];
    $password=password_hash($password, PASSWORD_BCRYPT);//5.5 and higher for this function
