@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
    require('dbconnection.php');
@@ -8,9 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    $password=password_hash($password, PASSWORD_BCRYPT);//5.5 and higher for this function
    $sql="INSERT INTO users (username, password) VALUES ('$username','$password')";
    $conn->query($sql);
-   require('nav.php');
+
 }
 //ubuntu 16.04 - 5.6 ; 18.04 - 7.2; redhat and centos is still stuck on 5.4
+if (isset($_SESSION['username']))
+{
+  require('nav.php');
+}
 ?>
 
 <!DOCTYPE html>
