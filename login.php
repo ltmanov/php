@@ -38,7 +38,7 @@ if(isset($_POST['username']))
 <!--body section-->
   </head>
   <body>
-    <<?php require('nav.php'); ?>
+    <?php require('nav.php'); ?>
     <!-- <a href="register.php">Register</a>
     <?php
     if ( isset($_SESSION['username'])){
