@@ -41,10 +41,10 @@ if(isset($_POST['username']))
     <a href="register.php">| Register</a>
     <?php
     if ( isset($_SESSION['username'])){
-    echo "<a href=\"upload.php\">| Upload</a>";
+    echo "<a href=\"upload.php\"> | Upload</a>";
     }
     if ( isset($_SESSION['username'])){
-    echo "<a href=\"users.php\">| Users</a>";
+    echo "<a href=\"users.php\"> | Users</a>";
     }
     ?>
     <br />
