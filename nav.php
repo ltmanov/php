@@ -8,6 +8,7 @@ if (!isset($_SESSION['username']))//check to see session is started
   header('Location: login.php');
 }
  ?>
+
  <br />
  <a href="register.php">| Register</a>
  <a href="upload.php">| Upload</a>
