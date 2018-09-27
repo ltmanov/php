@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
    require('login.php');
 }
 //ubuntu 16.04 - 5.6 ; 18.04 - 7.2; redhat and centos is still stuck on 5.4
-if (isset($_SESSION['username']))
-{
-  require('nav.php');
-}
+// if (isset($_SESSION['username']))
+// {
+//   require('nav.php');
+// }
 ?>
 
 <!DOCTYPE html>
