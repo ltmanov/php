@@ -7,11 +7,5 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){
   die("Connection failed: ". $conn->connect_error);
 }
-else{echo "Connection  Success";?>
-<a href="register.php">Register</a>
-<a href=\"upload.php\">| Upload</a>
-<a href=\"users.php\">| Users</a>";
-
-<?php
-}
+else{echo "Connection  Success";}
 ?>
