@@ -39,7 +39,7 @@ if(isset($_POST['username']))
   </head>
   <body>
 
-    <a href="register.php">Register</a>
+    <!-- <a href="register.php">Register</a>
     <?php
     if ( isset($_SESSION['username'])){
     echo "<a href=\"upload.php\">| Upload</a>";
@@ -47,7 +47,7 @@ if(isset($_POST['username']))
     if ( isset($_SESSION['username'])){
     echo "<a href=\"users.php\">| Users</a>";
     }
-    ?>
+    ?> -->
     <br />
 
     <form method="post" action="">
