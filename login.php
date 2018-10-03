@@ -1,6 +1,13 @@
 <?php
 session_start(); // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
+if (isset($_POST['logout'])) {
+  unset($_SESSION['username']);
+  unset($_POST['username']);
+  unset($_POST['password']);
+  header("Refresh:0");
+}
+if(isset($_SESSION['username'])) {require('nav.php');}
 
 if(isset($_POST['username']))
   {
@@ -17,10 +24,7 @@ if(isset($_POST['username']))
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
     }
-
-    if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
-    else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
-    else if (isset($_SESSION['username'])) {require('nav.php');}
+    //if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
   }
 ?>
 <!DOCTYPE html>
@@ -28,12 +32,6 @@ if(isset($_POST['username']))
   <head>
     <meta charset="utf-8">
     <title></title>
-    <?php
-        $username=$_POST['username'];
-        $password=$_POST['password'];
-
-        if (isset($_POST['logout'])) {unset($_SESSION['username']);}
-    ?>
   </head>
   <body>
     <?php
@@ -44,7 +42,7 @@ if(isset($_POST['username']))
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username...">
       <br />
-      <input type="password" name="password" >
+      <input type="password" name="password" placeholder="Enter Password...">
       <br />
       <input type="submit" value="go">
       <input type="submit" name="logout" value="logout"><!--value is text on button, submit makes pages reload-->
