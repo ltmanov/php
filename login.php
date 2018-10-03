@@ -16,9 +16,11 @@ if(isset($_POST['username']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
-           header("Refresh:0");
          }
-    }//
+    }
+      if (!isset($_POST['logout'])) {}
+      else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
+
   }
 ?>
 <!DOCTYPE html>
