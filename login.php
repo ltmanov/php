@@ -1,6 +1,7 @@
 <?php
 session_start(); // can use require-NEEDED or include
 require('dbconnection.php'); //die can kill this page as well
+require('nav.php');
 
 if(isset($_POST['username']))
   {
@@ -15,14 +16,10 @@ if(isset($_POST['username']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
+           header('Location: login.php');
          }
     }//
   }
-
-  if ( isset($_SESSION['username'])){
-    require('nav.php');
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +27,6 @@ if(isset($_POST['username']))
   <head>
     <meta charset="utf-8">
     <title></title>
-<!--makes post variables-->
     <?php
         $username=$_POST['username'];
         $password=$_POST['password'];
@@ -39,7 +35,6 @@ if(isset($_POST['username']))
           unset($_SESSION['username']);
         }
     ?>
-<!--body section-->
   </head>
   <body>
     <br /> <a href="register.php">| Register</a>
