@@ -8,9 +8,9 @@ if (!isset($_SESSION['username']))//check to see session is started
   header('Location: login.php');
 }
 
-if (basename($_SERVER['PHP_SELF'])) == users.php)
+if (basename($_SERVER['PHP_SELF']==users.php)
 {
-   ?>   <a href=users.php><strong>Users</strong></a> <?php
+?> <a href=users.php><strong>| Users</strong></a> <?php
 }
 else{
 ?> <a href=users.php>Users</a> <?php
@@ -19,6 +19,9 @@ else{
 
 
 
+
+
+?>
   <br />
  <a href="register.php">| Register</a>
  <a href="upload.php">| Upload</a>
