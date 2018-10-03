@@ -35,8 +35,8 @@ if(isset($_POST['username']))
   </head>
   <body>
     <?php
-      if (!isset($_SESSION['username']))
-      { echo "<a href=register.php>| Register |</a>"; }
+      if (isset($_SESSION['username'])) { echo "Logged in as: ". $_SESSION['username']; }
+      if (!isset($_SESSION['username'])) { echo "<a href=register.php>| Register |</a>"; }
     ?>
     <br />
     <form method="post" action="">
@@ -47,8 +47,5 @@ if(isset($_POST['username']))
       <input type="submit" value="go">
       <input type="submit" name="logout" value="logout"><!--value is text on button, submit makes pages reload-->
     </form>
-    <?php echo "Logged in as: ". $_SESSION['username']; ?>
-
   </body>
-</body>
 </html>
