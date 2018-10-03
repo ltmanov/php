@@ -7,10 +7,17 @@ if (!isset($_SESSION['username']))//check to see session is started
 {
   header('Location: login.php');
 }
+
+echo (basename($_SERVER['PHP_SELF'])) == users.php)
+? "<a href=users.php><strong>Users</strong></a>"
+: "<a href=users.php>Users</a>" ;
+
+
+
  ?>
   <br />
  <a href="register.php">| Register</a>
  <a href="upload.php">| Upload</a>
- <a href="users.php">| Users</a>
+ 
  <a href="login.php">| Log In</a>
  <br />
