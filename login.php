@@ -21,7 +21,6 @@ if(isset($_POST['username']))
     }//
   }
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -31,22 +30,15 @@ if(isset($_POST['username']))
         $username=$_POST['username'];
         $password=$_POST['password'];
 
-        if (isset($_POST['logout'])) {
-          unset($_SESSION['username']);
-
-
-        }
+        if (isset($_POST['logout'])) {unset($_SESSION['username']);}
     ?>
   </head>
   <body>
     <br />
-
     <?php
-    if (!isset($_SESSION['username']))//check to see session is started
-    {
-    echo "<a href="register.php">| Register</a>";
+      if (!isset($_SESSION['username']))
+      { echo "<a href=register.php>| Register |</a>"; }
     ?>
-
     <br />
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username...">
