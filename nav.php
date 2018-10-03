@@ -1,12 +1,6 @@
 <?php
 if (!isset($_SESSION['username']))//check to see session is started
 {
-  header('Location: login.php');
-  ?>
-
-  <br />
-
-<?php
   //if tree for different pages
   if (basename($_SERVER['PHP_SELF']) == "register.php") {
     echo "<a href=register.php><strong> | Register</strong></a>";
@@ -31,6 +25,5 @@ if (!isset($_SESSION['username']))//check to see session is started
   } else {
     echo "<a href=login.php> | Login</a>";
   }
-}
-  ?>
+}  ?>
 <br />
