@@ -20,7 +20,7 @@ if(isset($_POST['username']))
 
     if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
     else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
-
+    else if (isset($_SESSION['username'])) {require('nav.php');}
   }
 ?>
 <!DOCTYPE html>
