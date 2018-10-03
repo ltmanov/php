@@ -2,14 +2,9 @@
 session_start();
 require('dbconnection.php');
 
-if (isset($_POST['logout'])) {
-  unset($_SESSION['username']);
-  $loggedIn=false;
-}
+if (isset($_POST['logout'])) {  unset($_SESSION['username']);   $loggedIn=false;}
 
-if (isset($_SESSION['username'])) {
-  $loggedIn=true;
-}
+if (isset($_SESSION['username'])) { $loggedIn=true;}
 
 if(isset($_POST['username']))
   {
@@ -21,13 +16,12 @@ if(isset($_POST['username']))
     $result = $conn->query($sql);   //extracting the returned query information
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
     {//loops through all the values in the arrays
-        if (($username == $row['username']) && password_verify($password, $row['password']))
-         {//row is database value
-          $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
-          $loggedIn=true;
-         }
+      if (($username == $row['username']) && password_verify($password, $row['password']))
+       {//row is database value
+        $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
+        $loggedIn=true;
+       }
     }
-    //if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
   }
 ?>
 
