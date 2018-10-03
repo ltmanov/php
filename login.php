@@ -33,11 +33,20 @@ if(isset($_POST['username']))
 
         if (isset($_POST['logout'])) {
           unset($_SESSION['username']);
+
+
         }
     ?>
   </head>
   <body>
-    <br /> <a href="register.php">| Register</a>
+    <br />
+
+    <?php
+    if (!isset($_SESSION['username']))//check to see session is started
+    {
+    <a href="register.php">| Register</a>
+    ?>
+
     <br />
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username...">
