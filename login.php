@@ -7,6 +7,12 @@ if (isset($_POST['logout'])) {
   $loggedIn=false;
   header("Refresh:0");
 }
+
+if (isset($_SESSION['username'])) {
+  $loggedIn=true;
+}
+
+
 //if(isset($_SESSION['username'])) {require('nav.php');}
 
 if(isset($_POST['username'] && isset($_POST['password']))
@@ -22,7 +28,6 @@ if(isset($_POST['username'] && isset($_POST['password']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
           $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
-          $loggedIn=true;
          }
     }
     //if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
@@ -37,7 +42,7 @@ if(isset($_POST['username'] && isset($_POST['password']))
   </head>
   <body>
     <?php
-      if (loggedIn){require('nav.php');}
+      if ($loggedIn){require('nav.php');}
       if (isset($_SESSION['username'])) { echo "Logged in as: ". $_SESSION['username']; }
       if (!isset($_SESSION['username'])) { echo "<a href=register.php>| Register |</a>"; }
     ?>
