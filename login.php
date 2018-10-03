@@ -34,7 +34,6 @@ if(isset($_POST['username']))
     ?>
   </head>
   <body>
-    <br />
     <?php
       if (!isset($_SESSION['username']))
       { echo "<a href=register.php>| Register |</a>"; }
@@ -51,4 +50,5 @@ if(isset($_POST['username']))
     <?php echo "Logged in as: ". $_SESSION['username']; ?>
 
   </body>
+</body>
 </html>
