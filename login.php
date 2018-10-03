@@ -5,15 +5,11 @@ require('dbconnection.php');
 if (isset($_POST['logout'])) {
   unset($_SESSION['username']);
   $loggedIn=false;
-  header("Refresh:0");
 }
 
 if (isset($_SESSION['username'])) {
   $loggedIn=true;
 }
-
-
-//if(isset($_SESSION['username'])) {require('nav.php');}
 
 if(isset($_POST['username'] && isset($_POST['password']))
   {
@@ -42,7 +38,7 @@ if(isset($_POST['username'] && isset($_POST['password']))
   </head>
   <body>
     <?php
-      if ($loggedIn){require('nav.php');}
+      if ($loggedIn){require 'nav.php';}
       if (isset($_SESSION['username'])) { echo "Logged in as: ". $_SESSION['username']; }
       if (!isset($_SESSION['username'])) { echo "<a href=register.php>| Register |</a>"; }
     ?>
