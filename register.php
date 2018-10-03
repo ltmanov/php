@@ -3,6 +3,19 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
    require('dbconnection.php');
+     //Grab Post data...could be dangerous because of XSS or SQL injection
+     $username = $_POST['username'];
+     // Sanitize the $username by remove tags
+     $username = filter_var($username, FILTER_SANITIZE_STRING);
+     //Trim whitespace from the beginning and end of $username
+     $username = trim($username);
+     //Remove slashes from $username, no / allowed
+     $username = str_replace("/","",$username);
+     $username = str_replace("\\","",$username);
+     //Remove white space from middle of string
+     $username = preg_replace("/\s+/","",$username); // first parameter is string to look, second is what to replace it with
+
+     //Grab Post data...password will be hashed so no need to sanitize
    $username=$_POST['username'];
    $password=$_POST['password'];
    $password=password_hash($password, PASSWORD_BCRYPT);//5.5 and higher for this function
