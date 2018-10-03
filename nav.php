@@ -30,5 +30,5 @@ if (basename($_SERVER['PHP_SELF']) == "login.php") {
 } else {
   echo "<a href=login.php> | Login</a>";
 }
-
 ?>
+<br />
