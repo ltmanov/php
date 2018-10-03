@@ -44,7 +44,7 @@ if(isset($_POST['username']))
     <?php
     if (!isset($_SESSION['username']))//check to see session is started
     {
-    <a href="register.php">| Register</a>
+    echo "<a href="register.php">| Register</a>";
     ?>
 
     <br />
