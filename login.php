@@ -16,7 +16,7 @@ if(isset($_POST['username']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
-           header('Location: login.php');
+           header("Refresh:0");
          }
     }//
   }
@@ -48,8 +48,7 @@ if(isset($_POST['username']))
       <input type="submit" value="go">
       <input type="submit" name="logout" value="logout"><!--value is text on button, submit makes pages reload-->
     </form>
-
-<?php echo "Logged in as: ". $_SESSION['username']; ?>
+    <?php echo "Logged in as: ". $_SESSION['username']; ?>
 
   </body>
 </html>
