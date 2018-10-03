@@ -18,7 +18,7 @@ if(isset($_POST['username']))
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
     }
-      if (!isset($_POST['logout'])) {}
+      if (!isset($_POST['logout']) && isset($_SESSION['username'])) {}
       else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
 
   }
