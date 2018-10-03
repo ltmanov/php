@@ -17,9 +17,9 @@ if(isset($_POST['username']))
            $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
          }
     }
-      if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
-      else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
-
+    if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
+    else if (isset($_POST['logout'])) {unset($_SESSION['username']); header("Refresh:0");}
+    if (isset($_SESSION['username'])) {require('nav.php');}
   }
 ?>
 <!DOCTYPE html>
