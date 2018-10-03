@@ -1,9 +1,4 @@
 <?php
-if (!isset($_SESSION['username']))//check to see session is started
-{
-require('login.php');
-}
-
 if (isset($_SESSION['username']))//check to see session is started
 {
   //if tree for different pages
