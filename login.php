@@ -18,6 +18,11 @@ if(isset($_POST['username']))
          }
     }//
   }
+
+  if ( isset($_SESSION['username'])){
+    require('nav.php');
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,18 +42,8 @@ if(isset($_POST['username']))
 <!--body section-->
   </head>
   <body>
+    <br /> <a href="register.php">| Register</a>
     <br />
-    <a href="register.php">| Register</a>
-    <?php
-    if ( isset($_SESSION['username'])){
-    echo "<a href=\"upload.php\"> | Upload</a>";
-    }
-    if ( isset($_SESSION['username'])){
-    echo "<a href=\"users.php\"> | Users</a>";
-    }
-    ?>
-    <br />
-
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username...">
       <br />
