@@ -24,6 +24,7 @@ if(isset($_POST['username']))
         if (($username == $row['username']) && password_verify($password, $row['password']))
          {//row is database value
           $_SESSION['username'] = $username;//used to authenticate our session to stay logged in;
+          $loggedIn=true;
          }
     }
     //if (!isset($_POST['logout']) && isset($_SESSION['username'])) {require('nav.php');}
