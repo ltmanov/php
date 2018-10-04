@@ -19,7 +19,8 @@ $cookie_value="bob";
       }
       else {
         echo "This is your first time here.";
-      setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");  
+      //setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");  
+      //php7 allows this go work, otherwise would have to be up to before any html code
       }
      ?>
 
