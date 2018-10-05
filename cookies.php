@@ -1,12 +1,11 @@
 <?php
-session_start();
 $cookie_name ="user";
-$cookie_value = "".date('Y-m-d');
+$cookie_value = "".date('Y-m-d')."";
 
 if (isset($_COOKIE[$cookie_name])){
     $lastVisit= $_COOKIE[$cookie_name];
-    echo "You have been here before at" . $lastVisit;
-    $cookie_value = "".date('Y-m-d');
+    echo "You have been here before at" .$_COOKIE[$cookie_name];
+    $cookie_value = "".date('Y-m-d')."";
     setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
 }
 else {
