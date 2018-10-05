@@ -1,18 +1,18 @@
 <?php
-//setcookie(name, value, expire, path, domain, secure, httponly);
 $cookie_name ="user";
-//86400 = 1 day
+$cookie_value = date('Y-m-d');
+
 if (isset($_COOKIE[$cookie_name])){
     $last_visit= $_COOKIE[$cookie_value];
-    echo "You have been here before: at" . $last_visit;
+    echo "You have been here before: at" . $_COOKIE[$cookie_value];
     $cookie_value = date('Y-m-d');
-    setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
+    setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
 }
 else {
   echo 'Now:       '. date('Y-m-d') ."\n";
   echo "This is your first time here. We use cookies, we are required to let you know that we use cookies.";
   setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
-  echo 'Cookie value is : '.$_COOKIE[$cookie_name];
+  echo 'Cookie value is : '. $_COOKIE[$cookie_name];
 }
 
  ?>
@@ -30,6 +30,8 @@ else {
 </html>
 
 <!-- <?php
+//setcookie(name, value, expire, path, domain, secure, httponly);
+
   if (isset($_COOKIE['user'])) {
 
     //setcookie($cookie_name,$cookie_value, time() - (60), "/");
