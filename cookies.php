@@ -1,7 +1,7 @@
 <?php
 //setcookie(name, value, expire, path, domain, secure, httponly);
 $cookie_name ="user";
-$cookie_value="bob";
+$cookie_value=date('Y-m-d');
 //86400 = 1 day
 if (isset($_COOKIE['date'])){
     $last_visit= $_COOKIE['date'] - (86400*30);
