@@ -1,9 +1,10 @@
 <?php
 $cookie_name ="user";
 
+
 if (isset($_COOKIE[$cookie_name])){
     $last_visit= $_COOKIE[$cookie_value];
-    echo "You have been here before: at" . $_COOKIE[$cookie_value];
+    echo "You have been here before at" . $last_visit;
     $cookie_value = date('Y-m-d');
     setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
 
