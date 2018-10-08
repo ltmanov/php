@@ -4,8 +4,8 @@
 
   if (isset($_COOKIE[$cookie_name])){
       echo "Current time " .btime();
-      echo "Cookie  time " .$_COOKIE[$cookie_name] );
-//redo cookie
+      echo "Cookie  time " .$_COOKIE[$cookie_name];
+      var_dump($_COOKIE);
       $cookie_value = time();
       setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   }
