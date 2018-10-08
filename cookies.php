@@ -2,9 +2,10 @@
   <?php
   $cookie_name ="user";
 
-
   if (isset($_COOKIE[$cookie_name])){
-      echo "Your last visit was " . (time() - $_COOKIE[$cookie_name]) ." seconds ago";
+      echo "Current time " .btime();
+      echo "Cookie  time " .$_COOKIE[$cookie_name] );
+//redo cookie
       $cookie_value = time();
       setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   }
