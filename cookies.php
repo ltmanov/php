@@ -11,6 +11,7 @@
   }
   else {
     echo "This is your first time here. We are required to let you know that we use cookies.";
+    echo "Cookie time: ". $cookie_value;
     setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   }
    ?>
