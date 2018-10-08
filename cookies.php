@@ -1,3 +1,21 @@
+
+  <?php
+  $cookie_name ="user";
+  $cookie_value = time();
+
+  if (isset($_COOKIE[$cookie_name])){
+      $diff = time()-$_COOKIE[$cookie_name];
+      echo "Your last visit was " .$diff ." seconds ago";
+      $cookie_value = time();
+      setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
+  }
+  else {
+    echo "This is your first time here. We are required to let you know that we use cookies.";
+    setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
+  }
+   ?>
+
+<!--
 <?php
 $cookie_name ="user";
 if (isset($_COOKIE[$cookie_name])){
@@ -35,4 +53,4 @@ else {
       else{}
        ?>
    </body>
- </html>
+ </html> -->
