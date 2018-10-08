@@ -4,8 +4,7 @@
 
 
   if (isset($_COOKIE[$cookie_name])){
-      $diff = time() - $_COOKIE[$cookie_name];
-      echo "Your last visit was " . $diff ." seconds ago";
+      echo "Your last visit was " . (time() - $_COOKIE[$cookie_name]) ." seconds ago";
       $cookie_value = time();
       setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   }
