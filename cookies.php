@@ -5,6 +5,7 @@
   if (isset($_COOKIE[$cookie_name])){
       echo "Current time " .time();
       echo "Cookie  time " .$_COOKIE[$cookie_name];
+      echo "Subtract:    " .(time() - $_COOKIE[$cookie_name]);
       var_dump($_COOKIE);
       $cookie_value = time();
       setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
