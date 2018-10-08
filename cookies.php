@@ -3,7 +3,7 @@
   $cookie_name ="user";
 
   if (isset($_COOKIE[$cookie_name])){
-      echo "Current time " .btime();
+      echo "Current time " .time();
       echo "Cookie  time " .$_COOKIE[$cookie_name];
       var_dump($_COOKIE);
       $cookie_value = time();
