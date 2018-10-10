@@ -4,7 +4,7 @@ echo "<pre>$output</pre>";
 
 if (!stripos($ouput,"test"))
 {
-  echo = "test does not exist"
+  echo = "test does not exist";
 }
 
 $pwd = shell_exec('pwd');
