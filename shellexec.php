@@ -2,7 +2,7 @@
 $output = shell_exec('ls -lah');
 echo "<pre>$output</pre>";
 
-if (stripos($ouput,"test")==FALSE)
+if (strpbrk($output,"test")==FALSE)
 {
   echo = "test does not exist";
 }
