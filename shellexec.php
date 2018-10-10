@@ -2,8 +2,11 @@
 $output = shell_exec('ls -lah');
 echo "<pre>$output</pre>";
 
-if (!stripos($ouput,"test"))
+if (stripos($ouput,"test"))
 {
+  echo = "test exists";
+}
+else {
   echo = "test does not exist";
 }
 
