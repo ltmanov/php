@@ -3,7 +3,7 @@ $output = shell_exec('ls -lah');
 echo "$output";
 
 $pwd = shell_exec('pwd');
-echo "<pre>$pwd</pre>";
+//echo "<pre>$pwd</pre>";
 
 $file_test = file_exists("test");
   if ($file_test) {
@@ -13,7 +13,7 @@ $file_test = file_exists("test");
 
       $testArray =scandir("test/");
       var_dump($testArray);
-      
+
     } else {
       echo "test exists and is a file";
     }
