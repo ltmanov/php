@@ -15,7 +15,7 @@ $file_test = file_exists("test");
       //var_dump($testArray);
       foreach ($testArray as $key => $value) {
         if ($value == "." || $value == ".." ){continue;}
-        echo $value."<br />";
+        echo "<br />".$value;
       }
     } else {
       echo "test exists and is a file";
