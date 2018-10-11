@@ -29,12 +29,11 @@ $files1 = scandir($dir);
 print_r($files1);
 
 echo "<br />";
-$w = shell_exec('w');
-echo "$w";
-echo "<br />";
+
+
+
 $who = shell_exec('who');
 echo "$who";
-
 print_r(str_replace(")",") <br />",$who));
 
 ?>
