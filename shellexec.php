@@ -35,5 +35,6 @@ echo "<br />";
 $who = shell_exec('who');
 echo "$who";
 
+print_r(str_replace(")",") <br />",$who));
 
 ?>
