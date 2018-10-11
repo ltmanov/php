@@ -3,7 +3,7 @@ $output = shell_exec('ls -lah');
 echo "$output";
 
 $pwd = shell_exec('pwd');
-//echo "<pre>$pwd</pre>";
+echo "<pre>$pwd</pre>";
 
 $file_test = file_exists("test");
   if ($file_test) {
@@ -12,8 +12,11 @@ $file_test = file_exists("test");
       echo "test exists, and is a folder";
 
       $testArray =scandir("test/");
-      var_dump($testArray);
-
+      //var_dump($testArray);
+      foreach ($testArray as $key => $value) {
+        if ($value == "." || $value == ".." ){continue;}
+        echo $value."<br />";
+      }
     } else {
       echo "test exists and is a file";
     }
@@ -24,8 +27,5 @@ $file_test = file_exists("test");
 $dir = 'test';
 $files1 = scandir($dir);
 print_r($files1);
-
-
-
 
 ?>
