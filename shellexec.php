@@ -30,10 +30,10 @@ print_r($files1);
 
 echo "<br />";
 $w = shell_exec('w');
-echo "<pre>$w</pre>";
+echo "$w";
 echo "<br />";
 $who = shell_exec('who');
-echo "<pre>$who</pre>";
+echo ""$who";
 
 
 ?>
