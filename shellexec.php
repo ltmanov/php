@@ -16,8 +16,8 @@ $file_test = file_exists("test");
   } else {
     mkdir("test");
   }
-  
-$dir    = '/test';
+
+$dir = 'test';
 $files1 = scandir($dir);
 
 print_r($files1);
