@@ -33,7 +33,7 @@ $w = shell_exec('w');
 echo "$w";
 echo "<br />";
 $who = shell_exec('who');
-echo ""$who";
+echo "$who";
 
 
 ?>
