@@ -17,5 +17,10 @@ $file_test = file_exists("test");
     mkdir("test");
   }
 
+$dir    = '/test';
+$files1 = scandir($dir);
+
+print_r($files1);
+
 
 ?>
