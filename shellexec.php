@@ -46,7 +46,7 @@ echo $exp[0];
 // echo $exp[7];
 // echo $exp[8];
 // echo $exp[11];
-echo $exp[20];
+print_r($exp);
 
 
 
