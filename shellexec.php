@@ -32,12 +32,13 @@ echo "<br />";
 
 
 echo "<br/ >explode test <br/ >";
-$who = shell_exec('who');
-//echo "$who";
-$who_refined = (str_replace(")",") <br />",$who));
-print_r($who_refined);
-$exp = explode(" ", $nwo);
-print_r($exp);
+$users = shell_exec("w");
+$usersExploded = explode("\n", $users);
+foreach ($usersExploded as $key => $value) {
+  if ($key == "0" or $key == "1") {continue;}
+  $username =substr($value, 0, strrpos($value,' '));
+  echo $username . "<br />"
+}
 
 
 
