@@ -35,6 +35,7 @@ echo "<br/ >explode test <br/ >";
 $who = shell_exec('who');
 //echo "$who";
 $who_refined = (str_replace(")",") <br />",$who));
+print_r($who_refined);
 $exp = explode(" ", $nwo);
 print_r($exp);
 
