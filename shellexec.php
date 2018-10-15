@@ -36,15 +36,17 @@ $who = shell_exec('who');
 //echo "$who";
 print_r(str_replace(")",") <br />",$who));
 echo "<br/ >explode test <br/ >";
+
+$who = shell_exec('who');
 $exp = explode(" ", $who);
 echo $exp[0];
 //echo $exp[1];
 //echo $exp[2];
 //echo $exp[3];
-//echo $exp[4];
-//echo $exp[5];
-//echo $exp[6];
 echo $exp[9];
+echo $exp[10];
+echo $exp[11];
+echo $exp[12];
 
 
 
