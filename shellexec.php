@@ -28,9 +28,6 @@ $dir = 'test';
 $files1 = scandir($dir);
 print_r($files1);
 
-echo "<br />";
-
-
 echo "<br/ >explode test <br/ >";
 
 $users = shell_exec("w");
@@ -38,7 +35,7 @@ $usersExploded = explode("\n", $users);
 foreach ($usersExploded as $key => $value) {
   if ($key == "0" or $key == "1") {continue;}
   $username =substr($value, 0, strpos($value,' '));
-  echo $username . "<br />"
+  echo $username ."<br>";
 }
 
 
