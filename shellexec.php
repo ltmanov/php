@@ -40,7 +40,7 @@ $exp = explode(" ", $who);
 echo $exp[0];
 echo $exp[1];
 echo $exp[2];
-echo $exp[3];
+//echo $exp[3];
 echo $exp[4];
 //echo $exp[5];
 //echo $exp[6];
