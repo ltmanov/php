@@ -31,21 +31,11 @@ print_r($files1);
 echo "<br />";
 
 
-
+echo "<br/ >explode test <br/ >";
 $who = shell_exec('who');
 //echo "$who";
-print_r(str_replace(")",") <br />",$who));
-echo "<br/ >explode test <br/ >";
-
-$nwo = shell_exec('who');
+$who_refined = (str_replace(")",") <br />",$who));
 $exp = explode(" ", $nwo);
-echo $exp[0];
-echo $exp[15];
-// echo $exp[2];
-// echo $exp[3];
-// echo $exp[7];
-// echo $exp[8];
-// echo $exp[11];
 print_r($exp);
 
 
