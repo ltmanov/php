@@ -38,7 +38,7 @@ print_r(str_replace(")",") <br />",$who));
 echo "<br/ >explode test <br/ >";
 
 $nwo = shell_exec('who');
-$exp = explode(" ", nwo);
+$exp = explode(" ", $nwo);
 echo $exp[0];
 echo $exp[1];
 echo $exp[2];
