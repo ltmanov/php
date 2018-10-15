@@ -40,13 +40,13 @@ echo "<br/ >explode test <br/ >";
 $nwo = shell_exec('who');
 $exp = explode(" ", $nwo);
 echo $exp[0];
-echo $exp[1];
-echo $exp[2];
-echo $exp[3];
-echo $exp[7];
-echo $exp[8];
-echo $exp[11];
-echo $exp[13];
+// echo $exp[1];
+// echo $exp[2];
+// echo $exp[3];
+// echo $exp[7];
+// echo $exp[8];
+// echo $exp[11];
+echo $exp[20];
 
 
 
