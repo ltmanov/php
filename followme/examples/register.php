@@ -113,13 +113,13 @@ if (isset($_SESSION['username']))
 										<i class="fa fa-twitter"></i>
 									</a>
                                 </div>
-                                <form class="register-form">
+                                <form class="register-form" form method="post">
                                     <label>Email</label>
                                     <input type="text" name="email" class="form-control" placeholder="Email">
 
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
-                                    <button class="btn btn-danger btn-block btn-round">Register</button>
+                                    <input type="submit" button class="btn btn-danger btn-block btn-round">Register</button>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
