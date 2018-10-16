@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
   $email=$_POST['email'];
   $password=$_POST['password'];
-  $password=password_hash($password, PASSWORD_BCRYPT);//5.5 and higher for this function
-  $sql="INSERT INTO fm_users (username, password) VALUES ('$email','$password')";
+  $password=password_hash($password, PASSWORD_BCRYPT);
+  $sql="INSERT INTO fm_users (email, password) VALUES ('$email','$password')";
   $conn->query($sql);
   //header('Location: login.php');
 }
@@ -119,7 +119,7 @@ if (isset($_SESSION['username']))
 
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
-                                    <input type="submit" button class="btn btn-danger btn-block btn-round">Register</button>
+                                    <input type="submit" button class="btn btn-danger btn-block btn-round" placeholder="Register"></button>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
