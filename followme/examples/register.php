@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$db_name = 'lev'; //name of db
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-  $username=$_POST['username'];
+  $email=$_POST['email'];
   $password=$_POST['password'];
   $password=password_hash($password, PASSWORD_BCRYPT);//5.5 and higher for this function
-  $sql="INSERT INTO users (username, password) VALUES ('$username','$password')";
+  $sql="INSERT INTO fm_users (username, password) VALUES ('$email','$password')";
   $conn->query($sql);
   //header('Location: login.php');
 }
@@ -115,10 +115,10 @@ if (isset($_SESSION['username']))
                                 </div>
                                 <form class="register-form">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" name="email" class="form-control" placeholder="Email">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
                                     <button class="btn btn-danger btn-block btn-round">Register</button>
                                 </form>
                                 <div class="forgot">
