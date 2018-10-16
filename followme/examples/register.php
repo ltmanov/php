@@ -119,7 +119,7 @@ if (isset($_SESSION['username']))
 
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
-                                    <input type="submit" button class="btn btn-danger btn-block btn-round" placeholder="Register"></button>
+                                    <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round"></button>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
