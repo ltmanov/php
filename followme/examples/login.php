@@ -15,10 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $conn->query($sql);
 
 }
-if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
 
 if(isset($_POST['email']))
-  {
+{
     $email=$_POST['email'];
     $password=$_POST['password'];
     //sql statement to execute
@@ -31,9 +30,12 @@ if(isset($_POST['email']))
        {//row is database value
         $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
         $loggedIn=true;
+				header('Location: profile.html');
        }
     }
   }
+
+if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
 ?>
 <!doctype html>
 <html lang="en">
