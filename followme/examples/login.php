@@ -13,13 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $password=password_hash($password, PASSWORD_BCRYPT);
   $sql="INSERT INTO fm_users (email, password) VALUES ('$email','$password')";
   $conn->query($sql);
-  //header('Location: login.php');
-}
 
-if (isset($_SESSION['username']))
-{
-  //require('nav.php');
 }
+if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
+
+if(isset($_POST['email']))
+  {
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    //sql statement to execute
+    $sql="SELECT username, password FROM users WHERE username = '$email'";//vars must be '' for sql
+    // //execute the sql and return the array to $result
+    $result = $conn->query($sql);   //extracting the returned query information
+    while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
+    {//loops through all the values in the arrays
+      if (($username == $row['email']) && password_verify($password, $row['password']))
+       {//row is database value
+        $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
+        $loggedIn=true;
+       }
+    }
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -119,7 +133,7 @@ if (isset($_SESSION['username']))
 
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
-                                    <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round"></button>
+                                    <input type="submit" value="Login" button class="btn btn-danger btn-block btn-round"></button>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
