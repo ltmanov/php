@@ -8,14 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$db_name = 'lev'; //name of db
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-  $email=$_POST['email'];
-  $password=$_POST['password'];
-  $password=password_hash($password, PASSWORD_BCRYPT);
-  $sql="INSERT INTO fm_users (email, password) VALUES ('$email','$password')";
-  $conn->query($sql);
-
 }
-
 if(isset($_POST['email']))
 {
     $email=$_POST['email'];
@@ -33,6 +26,7 @@ if(isset($_POST['email']))
 				header('Location: profile.html');
        }
     }
+		//
   }
 
 if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
