@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $email=$_POST['email'];
     $password=$_POST['password'];
     //sql statement to execute
-    $sql="SELECT username, password FROM users WHERE username = '$email'";//vars must be '' for sql
+    $sql="SELECT email, password FROM fm_users WHERE email = '$email'";//vars must be '' for sql
     // //execute the sql and return the array to $result
     $result = $conn->query($sql);   //extracting the returned query information
     while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
