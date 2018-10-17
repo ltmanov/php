@@ -14,14 +14,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $email=$_POST['email'];
     $password=$_POST['password'];
-    //sql statement to execute
-    $sql="SELECT email, password FROM fm_users WHERE email = '$email'";//vars must be '' for sql
-    // //execute the sql and return the array to $result
-    $result = $conn->query($sql);   //extracting the returned query information
-    while ($row = $result->fetch_assoc())//$row=mysqli_fetch_assoc($result); //$row = $result->fetch_assoc()
-    {//loops through all the values in the arrays
-      if (($username == $row['email']) && password_verify($password, $row['password']))
-       {//row is database value
+    $sql="SELECT email, password FROM fm_users WHERE email = '$email'";
+    $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()){
+      if (($email == $row['email']) && password_verify($password, $row['password']))
         $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
         $loggedIn=true;
 				header('Location: profile.html');
