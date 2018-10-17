@@ -15,6 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $conn->query($sql);
   //header('Location: login.php');
 }
+
+if (isset($_SESSION['username']))
+{
+  //require('nav.php');
+}
 ?>
 <!doctype html>
 <html lang="en">
