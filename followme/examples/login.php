@@ -18,10 +18,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()){
       if (($email == $row['email']) && password_verify($password, $row['password']))
+			{
         $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
         $loggedIn=true;
 				header('Location: profile.html');
-       }
+      }
     }
 		//
   }
