@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 }
-if(isset($_POST['email']))
+
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -31,6 +32,7 @@ if(isset($_POST['email']))
 
 if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
