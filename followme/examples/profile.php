@@ -1,3 +1,9 @@
+<?php
+//session_start();
+//uses session_email to disp email in navig
+//modify fm_users to include profile_pic url, store it to S_session image url
+//first name, last name
+ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,17 +34,19 @@
     <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
         <div class="container">
 			<div class="navbar-translate">
-	            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-bar"></span>
-								<span class="navbar-toggler-bar"></span>
-								<span class="navbar-toggler-bar"></span>
-	            </button>
-	            <a class="navbar-brand" href="#">FOLLOW ME</a>
+          <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-bar"></span>
+						<span class="navbar-toggler-bar"></span>
+						<span class="navbar-toggler-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">FOLLOW ME</a>
 			</div>
 					<div class="collapse navbar-collapse" id="navbarToggler">
-			            <ul class="navbar-nav ml-auto">
-			                <li class="nav-item">	<a href="login.php" class="nav-link">LogIn</a> </li>
-			            </ul>
+            <ul class="navbar-nav ml-auto">
+							 <li class="nav-item">	<a href="login.php" class="nav-link">LogIn</a> </li>
+							  <li class="nav-item">	<a href="#" class="nav-link">LogIn</a> </li>
+								<<?php echo $_SESSION['$email']; ?>
+            </ul>
 			    </div>
 		</div>
     </nav>
@@ -51,16 +59,16 @@
             <div class="container">
                 <div class="owner">
                     <div class="avatar">
-                        <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        <img src="<<?php echo $_SESSION['profile_pic_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
-                        <h4 class="title">Jane Faker<br /></h4>
-						<h6 class="description">Music Producer</h6>
+                        <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?><br /></h4>
+						<h6 class="description"><?php echo $_SESSION['title'];?></h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto text-center">
-                        <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                        <p><?php echo $_SESSION['description']; ?> </p>
                         <br />
                         <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
                     </div>
