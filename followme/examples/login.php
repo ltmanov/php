@@ -1,7 +1,7 @@
 <?php //setting up the database connection
 session_start();
 //sends user back to profile if they are logged in
-if ( $loggedIn == 1){	header('Location: profile.php');}
+//if ( $loggedIn == 1){	header('Location: profile.php');}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
