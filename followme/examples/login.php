@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 //user authentication
 	$email=$_POST['email'];
   $password=$_POST['password'];
-  $sql="SELECT email, password FROM fm_users WHERE email = '$email' ";
+  $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
     if (($email == $row['email']) && password_verify($password, $row['password']))
