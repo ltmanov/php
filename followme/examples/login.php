@@ -21,13 +21,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			{
         $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
         $loggedIn=true;
-				header('Location: profile.html');
+				header('Location: profile.php');
       }
     }
 		//
   }
 
-if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.html');}
+if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.php');}
 ?>
 
 <!doctype html>
