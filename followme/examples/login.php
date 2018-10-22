@@ -1,40 +1,37 @@
 <?php //setting up the database connection
 session_start();
+//sends user back to profile if they are logged in
+if ( $loggedIn == 1){	header('Location: profile.php');}
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+//connection setup
 	$db_host = 'localhost'; // database is installed on php server
 	$db_user = 'lev'; // name to login to mysql
 	$db_password = 'southhills#'; // password
 	$db_name = 'lev'; //name of db
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-}
-
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $sql="SELECT email, password FROM fm_users WHERE email = '$email'";
-    $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()){
-      if (($email == $row['email']) && password_verify($password, $row['password']))
-			{
-        $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
-				$_SESSION['firstname'] = $row['firstname'];
-				$_SESSION['lastname'] = $row['lastname'];
-				$_SESSION['image'] = $row['image'];
-				$_SESSION['title'] = $row['title'];
-				$_SESSION['desc'] = $row['desc'];
-
-				$loggedIn=true;
-				header('Location: profile.php');
-      }
+//user authentication
+	$email=$_POST['email'];
+  $password=$_POST['password'];
+  $sql="SELECT email, password FROM fm_users WHERE email = '$email' ";
+  $result = $conn->query($sql);
+  while ($row = $result->fetch_assoc()) {
+    if (($email == $row['email']) && password_verify($password, $row['password']))
+		{
+      $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
+			$_SESSION['password'] = $row['password'];
+			$_SESSION['firstname'] = $row['firstname'];
+			$_SESSION['lastname'] = $row['lastname'];
+			$_SESSION['image'] = $row['image'];
+			$_SESSION['title'] = $row['title'];
+			$_SESSION['desc'] = $row['desc'];
+			$loggedIn = 1;
+			header('Location: profile.php');
     }
-		//
-  }
-
-
+  }//ends while loop for post checking
+}
 ?>
 
 <!doctype html>
