@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //uses session_email to disp email in navig
 //modify fm_users to include profile_pic url, store it to S_session image url
 //first name, last name
@@ -12,7 +12,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>FOLLOW ME BY LEV</title>
+	<title>Profile Page</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -62,8 +62,8 @@
                         <img src="<<?php echo $_SESSION['image']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
-                        <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?><br /></h4>
-						<h6 class="description"><?php echo $_SESSION['title'];?></h6>
+                        <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
+						            <h6 class="description"><?php echo $_SESSION['title'];?></h6>
                     </div>
                 </div>
                 <div class="row">
