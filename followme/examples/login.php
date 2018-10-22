@@ -1,5 +1,6 @@
 <?php //setting up the database connection
 session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	$db_host = 'localhost'; // database is installed on php server
@@ -25,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				$_SESSION['image'] = $row['image'];
 				$_SESSION['title'] = $row['title'];
 				$_SESSION['desc'] = $row['desc'];
-				
+
 				$loggedIn=true;
 				header('Location: profile.php');
       }
@@ -33,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		//
   }
 
-if (isset($_SESSION['email'])) { $loggedIn=true; header('Location: profile.php');}
+
 ?>
 
 <!doctype html>
