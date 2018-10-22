@@ -59,7 +59,7 @@ session_start();
             <div class="container">
                 <div class="owner">
                     <div class="avatar">
-                        <img src="<<?php echo $_SESSION['image']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        <img src="<<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
                         <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
@@ -67,8 +67,8 @@ session_start();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto text-center">
-                        <p><?php echo $_SESSION['description']; ?> </p>
+                  <div class="col-md-6 ml-auto mr-auto text-center">
+                    <p><?php echo $_SESSION['description']; ?> </p>
                         <br />
                         <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
                     </div>
@@ -101,7 +101,7 @@ session_start();
                                                 <h6>Flume<br/><small>Musical Producer</small></h6>
                                             </div>
                                             <div class="col-md-3 col-sm-2  ml-auto mr-auto">
-												<div class="form-check">
+												            <div class="form-check">
 					                                <label class="form-check-label">
 					                                    <input class="form-check-input" type="checkbox" value="" checked>
 					                                    <span class="form-check-sign"></span>
