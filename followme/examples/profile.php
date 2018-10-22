@@ -45,7 +45,7 @@ session_start();
             <ul class="navbar-nav ml-auto">
 							 <li class="nav-item">	<a href="login.php" class="nav-link">Log In</a> </li>
 							  <li class="nav-item">	<a href="#" class="nav-link">#</a> </li>
-								<?php echo $_SESSION['$email']; ?>
+								<?php echo $_SESSION['email']; ?>
             </ul>
 			    </div>
 		</div>
