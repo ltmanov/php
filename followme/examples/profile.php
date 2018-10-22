@@ -1,7 +1,6 @@
 <?php
 session_start();
-require('login.php');
-
+if (!(isset($_SESSION['email'])){require('login.php');}
  ?>
 <!doctype html>
 <html lang="en">
