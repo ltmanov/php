@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('login.php');
+//require('login.php');
 //uses session_email to disp email in navig
 //modify fm_users to include profile_pic url, store it to S_session image url
 //first name, last name
