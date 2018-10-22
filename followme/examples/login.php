@@ -20,7 +20,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       if (($email == $row['email']) && password_verify($password, $row['password']))
 			{
         $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
-        $loggedIn=true;
+				$_SESSION['firstname'] = $row['firstname'];
+				$_SESSION['lastname'] = $row['lastname'];
+				$_SESSION['image'] = $row['image'];
+				$_SESSION['title'] = $row['title'];
+				$_SESSION['desc'] = $row['desc'];
+				
+				$loggedIn=true;
 				header('Location: profile.php');
       }
     }
