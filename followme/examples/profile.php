@@ -43,9 +43,9 @@ session_start();
 			</div>
 					<div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
-							 <li class="nav-item">	<a href="login.php" class="nav-link">LogIn</a> </li>
-							  <li class="nav-item">	<a href="#" class="nav-link">LogIn</a> </li>
-								<<?php echo $_SESSION['$email']; ?>
+							 <li class="nav-item">	<a href="login.php" class="nav-link">Log In</a> </li>
+							  <li class="nav-item">	<a href="#" class="nav-link">#</a> </li>
+								<?php echo $_SESSION['$email']; ?>
             </ul>
 			    </div>
 		</div>
@@ -59,7 +59,7 @@ session_start();
             <div class="container">
                 <div class="owner">
                     <div class="avatar">
-                        <img src="<<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        <img src="<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
                         <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
