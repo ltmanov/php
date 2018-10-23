@@ -1,19 +1,4 @@
-<?php
-session_start();
-// echo $_SESSION['email'];
-// echo "<br />";
-// echo $_SESSION['password'];
-// echo "<br />";
-// echo $_SESSION['firstname'];
-// echo "<br />";
-// echo $_SESSION['lastname'];
-// echo "<br />";
-// echo $_SESSION['image'];
-// echo "<br />";
-// echo $_SESSION['title'];
-// echo "<br />";
-// echo $_SESSION['desc'];
- ?>
+<?php session_start();  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -54,71 +39,88 @@ session_start();
 </div>
 </nav>
 
-    <div class="wrapper">
-        <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-		        <div class="filter">
-            </div>
-		   </div>
-
-       <div class="section landing-section">
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-8 ml-auto mr-auto">
-                       <h2 class="text-center">Keep in touch?</h2>
-                       <form class="contact-form">
-                           <div class="row">
-                               <div class="col-md-6">
-                                   <label>Name</label>
-               <div class="input-group">
-                                     <span class="input-group-addon">
-                                         <i class="nc-icon nc-single-02"></i>
-                                     </span>
-                                     <input type="text" class="form-control" placeholder="Name">
-                                 </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <label>Email</label>
-               <div class="input-group">
-                 <span class="input-group-addon">
-                   <i class="nc-icon nc-email-85"></i>
-                 </span>
-                 <input type="text" class="form-control" placeholder="Email">
-               </div>
-                               </div>
-                           </div>
-                           <label>Message</label>
-                           <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
-                           <div class="row">
-                               <div class="col-md-4 ml-auto mr-auto">
-                                   <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
-                               </div>
-                           </div>
-                       </form>
-                   </div>
-               </div>
-           </div>
-       </div>
-
-    </div>
-
-	<footer class="footer section-dark">
-        <div class="container">
-            <div class="row">
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
-                        <li><a href="http://blog.creative-tim.com">Blog</a></li>
-                        <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
-                    </ul>
-                </nav>
-                <div class="credits ml-auto">
-                    <span class="copyright">
-                        © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                    </span>
-                </div>
-            </div>
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+        <div class="filter">
         </div>
-    </footer>
+   </div>
+
+<div class="section landing-section">
+<div class="container">
+<div class="row">
+<div class="col-md-8 ml-auto mr-auto">
+<h2 class="text-center">Edit Your Profile!</h2>
+
+<!-- begins first row -->
+<form class="contact-form" action ="" method="post">
+<div class="row">
+<div class="col-md-6">
+<label>First Name</label>
+<div class="input-group">
+<span class="input-group-addon">
+<i class="nc-icon nc-single-02"></i>
+</span>
+<input type="text" class="form-control" placeholder="Change First Name...">
+</div>
+</div>
+<div class="col-md-6">
+
+<label>Last Name</label>
+<div class="input-group">
+<span class="input-group-addon">
+<i class="nc-icon nc-email-85"></i>
+</span>
+<input type="text" class="form-control" placeholder="Change Last Nae">
+</div>
+</div>
+</div>
+<!-- ends first row -->
+
+<?php
+echo $_SESSION['email'];
+echo "<br />";
+echo $_SESSION['password'];
+echo "<br />";
+echo $_SESSION['firstname'];
+echo "<br />";
+echo $_SESSION['lastname'];
+echo "<br />";
+echo $_SESSION['image'];
+echo "<br />";
+echo $_SESSION['title'];
+echo "<br />";
+echo $_SESSION['desc'];
+?>
+
+<label>Message</label>
+<textarea class="form-control" rows="4" placeholder="Quantify your attributes..."></textarea>
+<div class="row">
+  <div class="col-md-4 ml-auto mr-auto">
+     <button class="btn btn-danger btn-lg btn-fill">Update</button>
+   </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="footer section-dark">
+  <div class="container">
+    <div class="row">
+      <nav class="footer-nav">
+          <ul>
+              <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+              <li><a href="http://blog.creative-tim.com">Blog</a></li>
+              <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+          </ul>
+      </nav>
+        <div class="credits ml-auto"><span class="copyright"> © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim</span>
+          </div>
+      </div>
+  </div>
+</footer>
 </body>
 
 <!-- Core JS Files -->
