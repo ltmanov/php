@@ -1,18 +1,18 @@
 <?php
 session_start();
-echo $_SESSION['email'];
-echo "<br />";
-echo $_SESSION['password'];
-echo "<br />";
-echo $_SESSION['firstname'];
-echo "<br />";
-echo $_SESSION['lastname'];
-echo "<br />";
-echo $_SESSION['image'];
-echo "<br />";
-echo $_SESSION['title'];
-echo "<br />";
-echo $_SESSION['desc'];
+// echo $_SESSION['email'];
+// echo "<br />";
+// echo $_SESSION['password'];
+// echo "<br />";
+// echo $_SESSION['firstname'];
+// echo "<br />";
+// echo $_SESSION['lastname'];
+// echo "<br />";
+// echo $_SESSION['image'];
+// echo "<br />";
+// echo $_SESSION['title'];
+// echo "<br />";
+// echo $_SESSION['desc'];
  ?>
 <!doctype html>
 <html lang="en">
