@@ -17,7 +17,7 @@ if (isset($_SESSION['email']))
   $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
-    if (($_SESSION['email'] == $row['email']) && password_verify($_SESSION['password'], $row['password']))
+    if (($_SESSION['email'] == $row['email']))
 		{
 			$_SESSION['firstname'] = $row['firstname'];
 			$_SESSION['lastname'] = $row['lastname'];
