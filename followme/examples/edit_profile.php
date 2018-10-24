@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 //user authentication
 if (isset($_SESSION['email']))
 {
-  $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', desc='".$_POST['desc']."' WHERE email = " . $_POST['email'];
+  $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE email = " . $_POST['email'];
   $result = $conn->query($sql);
   $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);
@@ -22,7 +22,7 @@ if (isset($_SESSION['email']))
 			$_SESSION['firstname'] = $row['firstname'];
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['title'] = $row['title'];
-			$_SESSION['desc'] = $row['desc'];
+			$_SESSION['descr'] = $row['descr'];
 			header('Location: profile.php');
     }
   }//ends while loop for post checking

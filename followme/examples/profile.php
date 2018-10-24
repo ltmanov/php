@@ -77,7 +77,7 @@ session_start();
                 </div>
                 <div class="row">
                   <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p><?php echo $_SESSION['desc']; ?> </p>
+                    <p><?php echo $_SESSION['descr']; ?> </p>
                         <br />
                         <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
                     </div>

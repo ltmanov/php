@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['image'] = $row['image'];
 			$_SESSION['title'] = $row['title'];
-			$_SESSION['desc'] = $row['desc'];
+			$_SESSION['descr'] = $row['descr'];
 			$loggedIn = 1;
 			header('Location: profile.php');
     }
