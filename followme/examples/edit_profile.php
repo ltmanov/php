@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
-    if (($_SESSION['email'] == $row['email']))
+    if (($_SESSION['userid'] == $row['userid']))
 		{
 			$_SESSION['firstname'] = $row['firstname'];
 			$_SESSION['lastname'] = $row['lastname'];
