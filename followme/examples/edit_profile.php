@@ -94,7 +94,7 @@
 // echo $_SESSION['desc'];
 ?>
 <label>Title</label>
-<textarea class="form-control" rows="4" placeholder="Enter your title..."></textarea>
+<textarea class="form-control" rows="1" placeholder="Enter your title..."></textarea>
 <div class="row">
   <div class="col-md-4 ml-auto mr-auto">
      <button class="btn btn-danger btn-lg btn-fill">Rename</button>
