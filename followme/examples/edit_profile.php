@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
   echo "got this far";
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
-  title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE email='".$_SESSION['email']."';
+  title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
   $result = $conn->query($sql);
   $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);

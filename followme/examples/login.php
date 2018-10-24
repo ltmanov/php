@@ -17,8 +17,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   while ($row = $result->fetch_assoc()) {
     if (($email == $row['email']) && password_verify($password, $row['password']))
 		{
-      $_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
+
+			$_SESSION['email'] = $email;//used to authenticate our session to stay logged in;
 			$_SESSION['password'] = $row['password'];
+			$_SESSION['userid'] = $row['userid'];
 			$_SESSION['firstname'] = $row['firstname'];
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['image'] = $row['image'];
