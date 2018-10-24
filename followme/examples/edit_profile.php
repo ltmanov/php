@@ -54,6 +54,7 @@
 <!-- begins first row -->
 <form class="contact-form" action ="" method="post">
 <div class="row">
+
 <div class="col-md-6">
 <label>First Name</label>
 <div class="input-group">
@@ -63,34 +64,43 @@
 <input type="text" class="form-control" placeholder="Change First Name...">
 </div>
 </div>
-<div class="col-md-6">
 
+<div class="col-md-6">
 <label>Last Name</label>
 <div class="input-group">
 <span class="input-group-addon">
 <i class="nc-icon nc-email-85"></i>
 </span>
-<input type="text" class="form-control" placeholder="Change Last Nae">
+<input type="text" class="form-control" placeholder="Change Last Name">
 </div>
 </div>
+
 </div>
 <!-- ends first row -->
 
 <?php
-echo $_SESSION['email'];
-echo "<br />";
-echo $_SESSION['password'];
-echo "<br />";
-echo $_SESSION['firstname'];
-echo "<br />";
-echo $_SESSION['lastname'];
-echo "<br />";
-echo $_SESSION['image'];
-echo "<br />";
-echo $_SESSION['title'];
-echo "<br />";
-echo $_SESSION['desc'];
+// echo $_SESSION['email'];
+// echo "<br />";
+// echo $_SESSION['password'];
+// echo "<br />";
+// echo $_SESSION['firstname'];
+// echo "<br />";
+// echo $_SESSION['lastname'];
+// echo "<br />";
+// echo $_SESSION['image'];
+// echo "<br />";
+// echo $_SESSION['title'];
+// echo "<br />";
+// echo $_SESSION['desc'];
 ?>
+<label>Title</label>
+<textarea class="form-control" rows="4" placeholder="Enter your title..."></textarea>
+<div class="row">
+  <div class="col-md-4 ml-auto mr-auto">
+     <button class="btn btn-danger btn-lg btn-fill">Rename</button>
+   </div>
+</div>
+
 
 <label>Message</label>
 <textarea class="form-control" rows="4" placeholder="Quantify your attributes..."></textarea>
