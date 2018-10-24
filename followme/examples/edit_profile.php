@@ -132,7 +132,7 @@ if (isset($_SESSION['email']))
 
 
 <label>Message</label>
-<textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['desc']; ?>"></textarea>
+<textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['descr']; ?>"></textarea>
 <div class="row">
   <div class="col-md-4 ml-auto mr-auto">
      <button class="btn btn-danger btn-lg btn-fill">Update</button>
