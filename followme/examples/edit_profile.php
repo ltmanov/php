@@ -1,4 +1,9 @@
-<?php session_start();  ?>
+<?php session_start();
+//display default --- DONE
+//set name for each form item -- DONE
+//update values in db
+//update session
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -61,7 +66,7 @@
 <span class="input-group-addon">
 <i class="nc-icon nc-single-02"></i>
 </span>
-<input type="text" class="form-control" placeholder="Change First Name...">
+<input type="text" name="firstname" class="form-control" placeholder="<?php echo $_SESSION['firstname']; ?>">
 </div>
 </div>
 
@@ -71,7 +76,7 @@
 <span class="input-group-addon">
 <i class="nc-icon nc-email-85"></i>
 </span>
-<input type="text" class="form-control" placeholder="Change Last Name">
+<input type="text" name="lastname" class="form-control" placeholder="<?php echo $_SESSION['lastname'];?>">
 </div>
 </div>
 
@@ -83,27 +88,27 @@
 // echo "<br />";
 // echo $_SESSION['password'];
 // echo "<br />";
-// echo $_SESSION['firstname'];
+//
 // echo "<br />";
-// echo $_SESSION['lastname'];
+//
 // echo "<br />";
 // echo $_SESSION['image'];
 // echo "<br />";
-// echo $_SESSION['title'];
+//
 // echo "<br />";
-// echo $_SESSION['desc'];
+//
 ?>
 <label>Title</label>
 <div class="input-group">
 <span class="input-group-addon">
 <i class="nc-icon nc-email-85"></i>
 </span>
-<input type="text" class="form-control" placeholder="Change your title...">
+<input type="text" name="title" class="form-control" placeholder="<?php echo $_SESSION['title']; ?>">
 </div>
 
 
 <label>Message</label>
-<textarea class="form-control" rows="4" placeholder="Quantify your attributes..."></textarea>
+<textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['desc']; ?>"></textarea>
 <div class="row">
   <div class="col-md-4 ml-auto mr-auto">
      <button class="btn btn-danger btn-lg btn-fill">Update</button>
