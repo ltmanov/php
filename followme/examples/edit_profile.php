@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {//connection setup
 	$db_host = 'localhost'; // database is installed on php server
@@ -9,16 +8,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$db_name = 'lev'; //name of db
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
+
 //user authentication
 if (isset($_SESSION['email']))
 {
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', desc='".$_POST['desc']."' WHERE email = " . $_POST['email'];
   $result = $conn->query($sql);
-}
   $sql="SELECT * FROM fm_users WHERE email = '$email' ";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
-    if (($_SESSION['email'] == $row['email']) && password_verify($password, $row['password']))
+    if (($_SESSION['email'] == $row['email']) && password_verify($_SESSION['password'], $row['password']))
 		{
 			$_SESSION['firstname'] = $row['firstname'];
 			$_SESSION['lastname'] = $row['lastname'];
