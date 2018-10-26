@@ -1,29 +1,22 @@
 <?php
 session_start();
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{//connection setup
+
 	$db_host = 'localhost'; // database is installed on php server
 	$db_user = 'lev'; // name to login to mysql
 	$db_password = 'southhills#'; // password
 	$db_name = 'lev'; //name of db
 	$conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 	if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-  $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
-  title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
-  $result = $conn->query($sql);
-  $sql="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
-  $result = $conn->query($sql);
-  while ($row = $result->fetch_assoc()) {
-    if (($_SESSION['userid'] == $row['userid']))
-		{
-      $_SESSION['firstname'] = $row['firstname'];
-			$_SESSION['lastname'] = $row['lastname'];
-			$_SESSION['title'] = $row['title'];
-			$_SESSION['descr'] = $row['descr'];
-			header('Location: profile.php');
-    }
-  }//ends while loop for post checking
-}
+
+//ends while loop for post checking
+
+
+//get array of users
+//<li> needs to be in loop of db records
+//replace flume with first name, last name of db
+//"  musial producer   " with Title
+//img source should point to their profile urldecode
+//check boxes should be unchecked
 ?>
 <!doctype html>
 <html lang="en">
@@ -72,63 +65,42 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
    </div>
 
 
-	 <!-- Tab panes -->
-	 <div class="tab-content following">
-	 		<div class="tab-pane active" id="follows" role="tabpanel">
-	 				<div class="row">
-	 						<div class="col-md-6 ml-auto mr-auto">
-	 								<ul class="list-unstyled follows">
-	 										<li>
-	 												<div class="row">
-	 														<div class="col-md-2 col-sm-2 ml-auto mr-auto">
-	 																<img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-	 														</div>
-	 														<div class="col-md-7 col-sm-4  ml-auto mr-auto">
-	 																<h6>Flume<br/><small>Musical Producer</small></h6>
-	 														</div>
-	 														<div class="col-md-3 col-sm-2  ml-auto mr-auto">
-	 										<div class="form-check">
-	 													<label class="form-check-label">
-	 															<input class="form-check-input" type="checkbox" value="" checked>
-	 															<span class="form-check-sign"></span>
-	 													</label>
-	 											</div>
-	 														</div>
-	 												</div>
-	 										</li>
-	 										<hr />
-	 										<li>
-	 												<div class="row">
-	 														<div class="col-md-2 ml-auto mr-auto ">
-	 																<img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-	 														</div>
-	 														<div class="col-md-7 col-sm-4">
-	 																<h6>Banks<br /><small>Singer</small></h6>
-	 														</div>
-	 														<div class="col-md-3 col-sm-2">
-	 				<div class="form-check">
-	 													<label class="form-check-label">
-	 															<input class="form-check-input" type="checkbox" value="">
-	 															<span class="form-check-sign"></span>
-	 													</label>
-	 											</div>
-	 														</div>
-	 												</div>
-	 										</li>
-	 								</ul>
-	 						</div>
-	 				</div>
-	 		</div>
-	 		<div class="tab-pane text-center" id="following" role="tabpanel">
-	 				<h3 class="text-muted">Not following anyone yet :(</h3>
-	 				<button class="btn btn-warning btn-round">Find artists</button>
-	 		</div>
-	 </div>
-	 </div>
-	 </div>
-	 </div>
+ <!-- Tab panes -->
+ <div class="tab-content following">
+ 		<div class="tab-pane active" id="follows" role="tabpanel">
+ 				<div class="row">
+ 						<div class="col-md-6 ml-auto mr-auto">
+ 								<ul class="list-unstyled follows">
 
+<?php
+$sql="SELECT * FROM fm_users";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+		$_user_firstname = $row['firstname'];
+		$_user_lastname = $row['lastname'];
+		$_user_title = $row['title'];
+?>
+<li>
+<div class="row">
+	<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+		<img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+		</div>
+<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+	<h6> <?php echo ( $_user_firstname . " " . $_user_lastname) ?><br/><small><?php echo $_user_title ?></small></h6>
+</div>
+<div class="col-md-3 col-sm-2  ml-auto mr-auto">
+	<div class="form-check">
+		<label class="form-check-label">
+			<input class="form-check-input" type="checkbox" value="" checked>
+			<span class="form-check-sign"></span>
+		</label>
+	</div>
+</div>
+</div>
+</li>
 
+<hr />
+<?php } ?>
 </div>
 
 <footer class="footer section-dark">
