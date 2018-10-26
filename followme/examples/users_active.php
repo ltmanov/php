@@ -65,12 +65,10 @@ session_start();
    </div>
 
 
- <!-- Tab panes -->
- <div class="tab-content following">
- 		<div class="tab-pane active" id="follows" role="tabpanel">
- 				<div class="row">
- 						<div class="col-md-6 ml-auto mr-auto">
- 								<ul class="list-unstyled follows">
+
+	<div class="row">
+			<div class="col-md-6 ml-auto mr-auto">
+					<ul class="list-unstyled follows">
 
 <?php
 $sql="SELECT * FROM fm_users";
@@ -103,6 +101,9 @@ while ($row = $result->fetch_assoc()) {
 <hr />
 <?php } ?>
 </div>
+</ul>
+</div>
+</div> <!--Ends Wrapper class -->
 
 <footer class="footer section-dark">
   <div class="container">
