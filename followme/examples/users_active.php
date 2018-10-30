@@ -10,7 +10,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 $sql2 = "SELECT * FROM fm_follow";
 $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
-		echo "_HELLO_";
+		echo "HELLO";
 }
 
 ?>
