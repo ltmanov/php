@@ -75,7 +75,7 @@ function checkUser($user)
 $sql="SELECT * FROM fm_users";
 $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
-		$_user_id = $row['user_id'];
+		$_user_id = $row['userid'];
 		$_user_firstname = $row['firstname'];
 		$_user_lastname = $row['lastname'];
 		$_user_title = $row['title'];
