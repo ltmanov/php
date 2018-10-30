@@ -9,8 +9,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //echo $_SESSION['userid'];
 //$user_data = array();
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-$sesh = $_SESSION['userid'];
-$sql2="SELECT follow_by FROM fm_follow WHERE user_id= $sesh";
+$sql2="SELECT follow_by FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
 $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 {
