@@ -84,7 +84,7 @@ while ($row = $result->fetch_assoc()) {
 		<label class="form-check-label">
 			<input class="form-check-input" type="checkbox" value="" <?php
 
-			$sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
+			$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
 			$result2 = $conn->query($sql2);
 			while ($row2 = $result2->fetch_assoc()) {
 				//if (($_SESSION['userid']==$row2['user_id'])){}//($_user_id == $row2['follow_by']) &&
