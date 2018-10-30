@@ -89,12 +89,12 @@ while ($row = $result->fetch_assoc()) {
 			$result2 = $conn2->query($sql2);
 
 			while ($row2 = $result2->fetch_assoc()) {
-				if (($_SESSION['userid']==$row2['user_id']))
-				{
-					echo "checked";
-				}//($_user_id == $row2['follow_by']) &&
+				//if (($_SESSION['userid']==$row2['user_id'])){}//($_user_id == $row2['follow_by']) &&
+				echo " HELLO ";
 			}
 
+
+			echo "checked";
 			?>>
 			<span class="form-check-sign"></span>
 		</label>
