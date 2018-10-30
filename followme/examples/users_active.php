@@ -89,10 +89,10 @@ while ($row = $result->fetch_assoc()) {
 			$result2 = $conn2->query($sql2);
 
 			while ($row2 = $result2->fetch_assoc()) {
-				if (($_user_id == $row2['follow_by']) && ($_SESSION['userid']==$row2['user_id']))
+				if (($_SESSION['userid']==$row2['user_id']))
 				{
 					echo "checked";
-				}// && ($row2['user_id']==$_SESSION['user_id'])
+				}//($_user_id == $row2['follow_by']) && 
 			}
 
 			?>>
