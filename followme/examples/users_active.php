@@ -8,6 +8,7 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //echo $_SESSION['userid'];
 
+
 $user_data=array();
 $x=0;
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
@@ -16,14 +17,14 @@ $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 {
 	$user_data[$x]=$row2['follow_by'];
-	counter++;
+	x++;
 }
 
 function checkUser($user)
 {
-	//for ($i=0; $i < counter; $i++) {
-	//if ($user == $user_data[i])
-	//	echo "checked";
+	for ($i=0; $i < x; $i++) {
+	if ($user == $user_data[i])
+	echo "checked";
 	}
 }
 ?>
