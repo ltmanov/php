@@ -8,8 +8,15 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //echo $_SESSION['userid'];
 
-
-//$user_data=array();
+$x=0;
+$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
+$sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
+$result2 = $conn2->query($sql2);
+while ($row2 = $result2->fetch_assoc()) {
+{
+	x++;
+}
+$user_data=array(x);
 $x=0;
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
 $sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
