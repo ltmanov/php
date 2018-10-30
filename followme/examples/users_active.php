@@ -7,6 +7,16 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 echo $_SESSION['userid'];
+
+checkUser()
+{
+	$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
+	$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
+	$result2 = $conn2->query($sql2);
+	while ($row2 = $result2->fetch_assoc()) {
+		echo "checked";
+	}
+}
 ?>
 
 <!doctype html>
@@ -82,20 +92,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php
-
-			$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-			$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
-			$result2 = $conn2->query($sql2);
-			while ($row2 = $result2->fetch_assoc()) {
-				//if (($_SESSION['userid']==$row2['user_id'])){}//($_user_id == $row2['follow_by']) &&
-				//if ($row2['follow_by' == $_user_id){ 	echo " HELLO ";	}
-				echo "checked";
-			}
-
-
-			//echo "checked";
-			?>>
+			<input class="form-check-input" type="checkbox" value="" <?php checkUser(); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
