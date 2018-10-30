@@ -13,7 +13,7 @@ $result2 = $conn->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 		$user_data[]=$row2[0];
 }
-var_dump($user_data[]);
+var_dump($user_data);
 
 function checkUser($user)
 {
