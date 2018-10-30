@@ -6,7 +6,7 @@ $db_password = 'southhills#';
 $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-
+echo $_SESSION['userid'];
 ?>
 
 <!doctype html>
@@ -92,7 +92,7 @@ while ($row = $result->fetch_assoc()) {
 				if (($_SESSION['userid']==$row2['user_id']))
 				{
 					echo "checked";
-				}//($_user_id == $row2['follow_by']) && 
+				}//($_user_id == $row2['follow_by']) &&
 			}
 
 			?>>
