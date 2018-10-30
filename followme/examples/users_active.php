@@ -7,11 +7,11 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
-$sql2="SELECT * FROM fm_follow";
-$result2 = $conn2->query($sql2);
-while ($row2 = $result2->fetch_assoc()) {
-		echo "_HELLO_";
-}
+// $sql2="SELECT * FROM fm_follow";
+// $result2 = $conn2->query($sql2);
+// while ($row2 = $result2->fetch_assoc()) {
+// 		echo "_HELLO_";
+// }
 
 ?>
 <!doctype html>
@@ -74,10 +74,6 @@ while ($row = $result->fetch_assoc()) {
 		$_user_lastname = $row['lastname'];
 		$_user_title = $row['title'];
 		$_user_image = $row['image'];
-
-
-
-
 ?>
 <li>
 <div class="row">
