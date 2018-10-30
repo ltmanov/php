@@ -9,7 +9,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //echo $_SESSION['userid'];
 
 
-$user_data=array();
+//$user_data=array();
 $x=0;
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
 $sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
