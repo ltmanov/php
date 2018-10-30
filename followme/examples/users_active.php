@@ -88,8 +88,8 @@ while ($row = $result->fetch_assoc()) {
 			$result2 = $conn->query($sql2);
 			while ($row2 = $result2->fetch_assoc()) {
 				//if (($_SESSION['userid']==$row2['user_id'])){}//($_user_id == $row2['follow_by']) &&
-				if ($row2['follow_by' == $_user_id){ 	echo " HELLO ";	}
-			
+				//if ($row2['follow_by' == $_user_id){ 	echo " HELLO ";	}
+				echo " HELLO ";
 			}
 
 
