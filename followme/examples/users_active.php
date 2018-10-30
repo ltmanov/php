@@ -6,18 +6,25 @@ $db_password = 'southhills#';
 $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-echo $_SESSION['userid'];
+//echo $_SESSION['userid'];
 
+$user_data=array();
+$x=0;
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
+$sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
 $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
-	echo "checked";
+{
+	$user_data[$x]=$row2['follow_by'];
+	counter++;
 }
 
-function checkUser()
+function checkUser($user)
 {
-
+	for ($i=0; $i < counter; $i++) {
+	if ($user == $user_data[i])
+		echo "checked";
+	}
 }
 ?>
 
@@ -94,7 +101,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php checkUser(); ?>>
+			<input class="form-check-input" type="checkbox" value="" <?php checkUser($_user_id); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
