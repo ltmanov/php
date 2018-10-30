@@ -21,9 +21,9 @@ while ($row2 = $result2->fetch_assoc()) {
 
 function checkUser($user)
 {
-	for ($i=0; $i < counter; $i++) {
-	if ($user == $user_data[i])
-		echo "checked";
+	//for ($i=0; $i < counter; $i++) {
+	//if ($user == $user_data[i])
+	//	echo "checked";
 	}
 }
 ?>
