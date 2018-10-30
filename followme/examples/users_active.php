@@ -8,7 +8,7 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 echo $_SESSION['userid'];
 
-checkUser()
+function checkUser()
 {
 	$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
 	$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
