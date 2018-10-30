@@ -7,6 +7,7 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -67,11 +68,8 @@ while ($row = $result->fetch_assoc()) {
 		$_user_lastname = $row['lastname'];
 		$_user_title = $row['title'];
 		$_user_image = $row['image'];
-
-
-
-
 ?>
+
 <li>
 <div class="row">
 	<div class="col-md-2 col-sm-2 ml-auto mr-auto">
@@ -88,10 +86,11 @@ while ($row = $result->fetch_assoc()) {
 			$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
 			$sql2="SELECT * FROM fm_follow";
 			$result2 = $conn2->query($sql2);
+			echo "checked";
 			while ($row2 = $result2->fetch_assoc()) {
 				if (($_user_id == $row2['follow_by']))
 				{
-					echo "checked";
+
 				}// && ($row2['user_id']==$_SESSION['user_id'])
 			}
 
