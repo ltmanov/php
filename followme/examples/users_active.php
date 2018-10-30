@@ -6,17 +6,21 @@ $db_password = 'southhills#';
 $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
-//echo $_SESSION['userid'];
-//$user_data = array();
+echo $_SESSION['userid'];
+$counter=0;
+
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-$sql2="SELECT * FROM fm_follow"; //WHERE user_id=" . $_SESSION['userid'];
+$sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
 $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 {
-//	$user_data[]=$row2['follow_by'];
+
 }
 
+function checkUser()
+{
 
+}
 ?>
 
 <!doctype html>
@@ -92,7 +96,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php  ?>>
+			<input class="form-check-input" type="checkbox" value="" <?php checkUser(); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
