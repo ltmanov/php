@@ -13,6 +13,7 @@ $result2 = $conn->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 		$user_data[]=$row2[0];
 }
+vardump($user_data[]);
 
 function checkUser($user)
 {
