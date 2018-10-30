@@ -6,6 +6,13 @@ $db_password = 'southhills#';
 $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
+
+$sql2="SELECT * FROM fm_follow WHERE user_id = 12";
+$result2 = $conn2->query($sql2);
+while ($row2 = $result2->fetch_assoc()) {
+		echo "_HELLO_";
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,18 +92,11 @@ while ($row = $result->fetch_assoc()) {
 		<label class="form-check-label">
 			<input class="form-check-input" type="checkbox" value="" <?php
 
-			$conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-			$sql2="SELECT * FROM fm_follow WHERE userid = $_user_id;
-			$result2 = $conn2->query($sql2);
-
-			while ($row2 = $result2->fetch_assoc()) {
-				$f_user_id = $row2['user_id'];
-				$f_follow_by = $row2['follow_by'];
-			}
 
 
 
-			if (($_user_id==$f_follow_by)&& ( ) ){ echo "checked"};
+
+
 
 			?>>
 			<span class="form-check-sign"></span>
