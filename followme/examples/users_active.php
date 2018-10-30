@@ -8,7 +8,7 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
 $sql2 = "SELECT * FROM fm_follow";
-$result2 = $conn2->query($sql2);
+$result2 = $conn->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 		echo "HELLO";
 }
@@ -86,15 +86,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php
-
-
-
-
-
-
-
-			?>>
+			<input class="form-check-input" type="checkbox" value="">S
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
