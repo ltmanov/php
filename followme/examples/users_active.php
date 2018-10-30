@@ -15,7 +15,7 @@ while ($row2 = $result2->fetch_assoc()) {
 }
 var_dump($user_data);
 
-function checkUser($user)
+function checkUser($user,$user_data )
 {
 var_dump($user_data);
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
@@ -89,13 +89,13 @@ while ($row = $result->fetch_assoc()) {
 		</div>
 <div class="col-md-7 col-sm-4  ml-auto mr-auto">
 	<h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/><small><?php echo $_user_title ?></small></h6>
-<?php checkUser($_user_id); ?>
+<?php checkUser($_user_id, $user_data); ?>
 
 </div>
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php checkUser($_user_id); ?>>
+			<input class="form-check-input" type="checkbox" value="" <?php checkUser($_user_id, $user_data); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
