@@ -11,7 +11,7 @@ $user_data=array();
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
 $result2 = $conn->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
-		$user_data[]=$row2[0];
+		$user_data[]=$row2['follow_by'];
 }
 var_dump($user_data);
 
