@@ -8,10 +8,11 @@ $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //echo $_SESSION['userid'];
 
-$user_data=array(2);
+$user_data = [];
 $x=0;
 $conn2 = new mysqli($db_host,$db_user,$db_password,$db_name);
-$sql2="SELECT * FROM fm_follow WHERE user_id=" . $_SESSION['userid'];
+$sesh = $_SESSION['userid'];
+$sql2="SELECT * FROM fm_follow WHERE user_id= $sesh";
 $result2 = $conn2->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 {
@@ -19,13 +20,13 @@ while ($row2 = $result2->fetch_assoc()) {
 	x++;
 }
 
-function checkUser($user)
-{
-	//for ($i=0; $i < x; $i++) {
-	//if ($user == $user_data[i])
-	//echo "checked";
-	}
-}
+// function checkUser($user)
+// {
+// 	for ($i=0; $i < x; $i++) {
+//   if ($user == $user_data[i])
+// 	echo "checked";
+// 	}
+// }
 ?>
 
 <!doctype html>
