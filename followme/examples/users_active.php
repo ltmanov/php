@@ -21,9 +21,9 @@ while ($row2 = $result2->fetch_assoc()) {
 
 function checkUser($user)
 {
-	for ($i=0; $i < x; $i++) {
-	if ($user == $user_data[i])
-	echo "checked";
+	//for ($i=0; $i < x; $i++) {
+	//if ($user == $user_data[i])
+	//echo "checked";
 	}
 }
 ?>
@@ -101,7 +101,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php checkUser($_user_id); ?>>
+			<input class="form-check-input" type="checkbox" value="" <?php  ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
