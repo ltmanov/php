@@ -17,7 +17,7 @@ var_dump($user_data);
 
 function checkUser($user)
 {
-  if (in_array($user, $user_data)) {echo "checked";}
+  if (in_array("12", $user_data)) {echo "checked";}
 }
 ?>
 <!doctype html>
