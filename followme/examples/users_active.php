@@ -14,7 +14,7 @@ function checkUser()
 	$sql2="SELECT * FROM fm_follow";//user_id=" . $_SESSION['userid'];
 	$result2 = $conn2->query($sql2);
 	while ($row2 = $result2->fetch_assoc()) {
-		echo "checked";
+		echo "hidden";
 	}
 }
 ?>
