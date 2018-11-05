@@ -7,6 +7,10 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
+//using post data, we add in the userid of people that are checked
+//we check each each user in user_data against this array, anyone not in
+//will be removed from it
+
 $user_data=array();
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
 $result2 = $conn->query($sql2);
@@ -17,7 +21,6 @@ var_dump($user_data);
 
 function checkUser($user,$user_data )
 {
-//var_dump($user_data);
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
 }
 ?>
@@ -69,6 +72,9 @@ function checkUser($user,$user_data )
 
 <br /><br />
 
+
+<form action="" method="post">
+
 <div class="row">
 		<div class="col-md-6 ml-auto mr-auto">
 				<ul class="list-unstyled follows">
@@ -95,7 +101,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" type="checkbox" value="" <?php checkUser($_user_id, $user_data); ?>>
+			<input class="form-check-input" type="checkbox" value="<?php $_user_id ?>" <?php checkUser($_user_id, $user_data); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
@@ -107,6 +113,8 @@ while ($row = $result->fetch_assoc()) {
 </div>
 </ul>
 </div>
+<input type="submit" value="Submit">
+</form>
 </div> <!--Ends Wrapper class -->
 
 <footer class="footer section-dark">
