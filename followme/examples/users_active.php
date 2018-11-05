@@ -14,14 +14,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //print all fm_users
 function printAll()
 {
-	$sql="SELECT * FROM fm_users";
-	$result = $conn->query($sql);
-	while ($row = $result->fetch_assoc()) {
-			$_user_id = $row['userid'];
-			$_user_firstname = $row['firstname'];
-			$_user_lastname = $row['lastname'];
-			$_user_title = $row['title'];
-			$_user_image = $row['image'];
+
 }
 
 
@@ -92,7 +85,16 @@ function checkUser($user,$user_data)
 <div class="row">
 		<div class="col-md-6 ml-auto mr-auto">
 				<ul class="list-unstyled follows">
-<?php printAll();?>
+<?php
+$sql="SELECT * FROM fm_users";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+		$_user_id = $row['userid'];
+		$_user_firstname = $row['firstname'];
+		$_user_lastname = $row['lastname'];
+		$_user_title = $row['title'];
+		$_user_image = $row['image'];
+?>
 <li>
 <div class="row">
 	<div class="col-md-2 col-sm-2 ml-auto mr-auto">
