@@ -11,12 +11,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //we check each each user in user_data against this array, anyone not in
 //will be removed from it
 
-//print all fm_users
-function printAll()
-{
-
-}
-
+//print all users
 
 $user_data=array();
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
@@ -26,7 +21,7 @@ while ($row2 = $result2->fetch_assoc()) {
 }
 var_dump($user_data);
 
-function checkUser($user,$user_data)
+function checkUser($user,$user_data )
 {
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
 }
