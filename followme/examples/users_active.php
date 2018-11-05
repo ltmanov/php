@@ -11,6 +11,20 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 //we check each each user in user_data against this array, anyone not in
 //will be removed from it
 
+//print all fm_users
+function printAll()
+{
+	$sql="SELECT * FROM fm_users";
+	$result = $conn->query($sql);
+	while ($row = $result->fetch_assoc()) {
+			$_user_id = $row['userid'];
+			$_user_firstname = $row['firstname'];
+			$_user_lastname = $row['lastname'];
+			$_user_title = $row['title'];
+			$_user_image = $row['image'];
+}
+
+
 $user_data=array();
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
 $result2 = $conn->query($sql2);
@@ -19,7 +33,7 @@ while ($row2 = $result2->fetch_assoc()) {
 }
 var_dump($user_data);
 
-function checkUser($user,$user_data )
+function checkUser($user,$user_data)
 {
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
 }
@@ -78,16 +92,7 @@ function checkUser($user,$user_data )
 <div class="row">
 		<div class="col-md-6 ml-auto mr-auto">
 				<ul class="list-unstyled follows">
-<?php
-$sql="SELECT * FROM fm_users";
-$result = $conn->query($sql);
-while ($row = $result->fetch_assoc()) {
-		$_user_id = $row['userid'];
-		$_user_firstname = $row['firstname'];
-		$_user_lastname = $row['lastname'];
-		$_user_title = $row['title'];
-		$_user_image = $row['image'];
-?>
+<?php printAll();?>
 <li>
 <div class="row">
 	<div class="col-md-2 col-sm-2 ml-auto mr-auto">
