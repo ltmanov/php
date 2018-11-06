@@ -19,16 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	//var_dump($all_user);
 	foreach ($all_user as $value1) {
+		$found = 0;
 		foreach($_POST as $key => $value2)
 		{
-			$found = 0;
 			if (in_array("$value2",$all_user))
 			{
-				$found =1;
+				$found = 1;
 			}
 		}
 		if (found == 0) { echo "not found";}
-		
+
 		foreach($_POST as $key => $value2)
 		{
 			if ($value1 == $value2){
