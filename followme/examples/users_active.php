@@ -17,7 +17,8 @@ while ($row = $result->fetch_assoc())
 checks values compared to values in post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	foreach ($_POST as $value) {
+	foreach($_POST['name_for_the_items'] as $item)
+	{
 		if (in_array("$value", $all_user)	{			echo "This user is in!";		}
 		if (!(in_array("$value", $all_user)){		echo "This user is not in!";	}
 	}
@@ -117,7 +118,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
 	<div class="form-check">
 		<label class="form-check-label">
-			<input class="form-check-input" name="" type="checkbox" value="<?php $_user_id ?>" <?php checkUser($_user_id, $user_data); ?>>
+			<input class="form-check-input" name="name_for_the_items[]" type="checkbox" value="<?php echo $_user_id ?>" <?php checkUser($_user_id, $user_data); ?>>
 			<span class="form-check-sign"></span>
 		</label>
 	</div>
