@@ -119,7 +119,7 @@ while ($row = $result->fetch_assoc()) {
 		$_user_title = $row['title'];
 		$_user_image = $row['image'];
 		//generates an array of all users
-		//$all_user[]=$row['userid'];
+		$all_user[]=$row['userid'];
 ?>
 <li>
 <div class="row">
