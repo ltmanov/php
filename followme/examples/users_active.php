@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	var_dump($all_user);
 	foreach ($all_user as $value1) {
-		// foreach($_POST as $key => $value2)
-		// {
-		// 	if ($value1==$value2){ echo " This value is in! <br />"}
-		// }
+		foreach($_POST as $key => $value2)
+		{
+			//if ($value1==$value2){ echo " This value is in! <br />"}
+		}
 	}
 }
 
