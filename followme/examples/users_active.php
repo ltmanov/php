@@ -19,12 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	//var_dump($all_user);
 	foreach ($all_user as $value1) {
+
 		foreach($_POST as $key => $value2)
 		{
-			//echo "val 1: ".$value1. " --- val 2: ".$value2."<br />";
-			if ($value1 == $value2){ echo " This value is in! <br />";}
-			//if (in_array("$value2", $all_user)) {echo "IN ARRAY: ".$value2."<br />";}
-			if (!(in_array("$value2", $all_user))) {echo "NOT IN ARRAY: ".$value2."<br />";}
+			$found = 0;
+			if ($value1 == $value2){ $found = 1; echo " This value is in! <br />";}
+		}
+		if (found == 0)
+		{
+			echo "This value is NOT in!".$value1." <br />";
 		}
 	}
 }
