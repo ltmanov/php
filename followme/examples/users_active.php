@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	var_dump($all_user);
 	foreach ($all_user as $value) {
-		if (in_array("$value", $_POST)	{	echo "This user is in! <br />";		}
+		if (in_array($value, $_POST)	{	echo "This user is in! <br />";		}
 	}
 
 	// foreach($_POST as $key => $value)
