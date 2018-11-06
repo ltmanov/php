@@ -135,7 +135,7 @@ while ($row = $result->fetch_assoc()) {
 </div>
 </ul>
 </div>
-	<input type="submit" name= "follow_users" value="Submit">
+	<input type="submit" value="Submit">
 </form>
 </div> <!--Ends Wrapper class -->
 
