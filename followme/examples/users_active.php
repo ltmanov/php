@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	// }
 	foreach($_POST as $key => $value)
 	{
-  	echo "POST parameter '$key' has '$value'";
+  	echo "POST parameter '$key' has '$value' <br />";
 	}
 }
 
