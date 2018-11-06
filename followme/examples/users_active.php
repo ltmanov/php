@@ -16,23 +16,22 @@ while ($row = $result->fetch_assoc()) {
 	$all_user[]=$row['userid'];
 }
 //checks values compared to values in post
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-	foreach ($_POST as $value)
-	{
-		echo $value;
-		// if (in_array("$value", $all_user)
-		// {
-		// 	echo "This user is in!";
-		// }
-		// if (!(in_array("$value", $all_user))
-		// {
-		// 	echo "This user is not
-		// 	in!";
-		// }
-
-	}
-}
+// if ($_SERVER['REQUEST_METHOD'] == 'POST')
+// {
+// 	foreach ($_POST as $value)
+// 	{
+// 		if (in_array("$value", $all_user)
+// 		{
+// 			echo "This user is in!";
+// 		}
+// 		if (!(in_array("$value", $all_user))
+// 		{
+// 			echo "This user is not
+// 			in!";
+// 		}
+//
+// 	}
+// }
 
 
 
