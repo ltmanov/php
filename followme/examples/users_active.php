@@ -20,15 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	foreach ($_POST as $value)
 	{
-		if (in_array("$value", $all_user)
-		{
-			echo "This user is in!";
-		}
-		if (!(in_array("$value", $all_user))
-		{
-			echo "This user is not
-			in!";
-		}
+		echo $value;
+		// if (in_array("$value", $all_user)
+		// {
+		// 	echo "This user is in!";
+		// }
+		// if (!(in_array("$value", $all_user))
+		// {
+		// 	echo "This user is not
+		// 	in!";
+		// }
 
 	}
 }
