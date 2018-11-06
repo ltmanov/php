@@ -7,32 +7,31 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
-// $sql="SELECT * FROM fm_users";
-// $result = $conn->query($sql);
-// //deaaring all users array
-// $all_user=array();
-// //this generates an array of all userid in the db
-// while ($row = $result->fetch_assoc()) {
-// 	$all_user[]=$row['userid'];
-// }
-// //checks values compared to values in post
-// if ($_SERVER['REQUEST_METHOD'] == 'POST')
-// {
-// 	foreach ($_POST as $key => $value)
-// 	{
-// 		if (in_array("$value", $all_user)
-// 		{
-// 			echo "This user is in!";
-// 		}
-// 		if (!(in_array("$value", $all_user))
-// 		{
-// 			echo "This user is not
-// 			in!";
-// 		}
-//
-// 	}
-// }
-//
+$sql="SELECT * FROM fm_users";
+$result = $conn->query($sql);
+$all_user=array();
+while ($row = $result->fetch_assoc())
+{
+	$all_user[]=$row['userid'];
+}
+//checks values compared to values in post
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+	foreach ($_POST as $key => $value)
+	{
+		if (in_array("$value", $all_user)
+		{
+			echo "This user is in!";
+		}
+		if (!(in_array("$value", $all_user))
+		{
+			echo "This user is not
+			in!";
+		}
+
+	}
+}
+
 
 
 $user_data=array();
