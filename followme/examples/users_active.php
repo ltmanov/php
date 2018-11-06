@@ -19,23 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	//var_dump($all_user);
 	foreach ($all_user as $value1) {
-		$found = 0;
-		foreach($_POST as $key => $value2)
-		{
-			if (in_array("$value2",$all_user))
-			{
-				$found = 1;
-			}
-		}
-		if (found == 0) { echo "not found";}
 
 		foreach($_POST as $key => $value2)
 		{
-			if ($value1 == $value2){
-				echo " This value is in! <br />";
-				break;
-			}
+			$found=0;
+			if ($value1 == $value2){echo " This value is in! <br />"; $found=1; break;}
 		}
+		if ($found==0){echo "This value".$value1." is NOT FOUND! <br />";}
+
+
+
+
 
 	}
 }
