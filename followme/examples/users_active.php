@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			//echo "val 1: ".$value1. " --- val 2: ".$value2."<br />";
 			//if ($value1 == $value2){ echo " This value is in! <br />";}
-			if (in_array("$user", $all_user)) {echo "checked";}
+			if (in_array("$value2", $all_user)) {echo "checked";}
 		}
 	}
 }
