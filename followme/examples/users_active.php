@@ -17,11 +17,11 @@ while ($row = $result->fetch_assoc())
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	var_dump($all_user);
 	foreach($_POST as $key => $value)
 	{
   	echo "POST parameter '$key' has '$value' : ";
-		var_dump($all_user);
-		//if (in_array($value, $all_user)	{			echo "This user is in! <br />";		}
+		if (in_array($value, $all_user)	{			echo "This user is in! <br />";		}
 		//if (!(in_array($value, $all_user)){		echo "This user is not in! <br />";	}
 	}
 }
