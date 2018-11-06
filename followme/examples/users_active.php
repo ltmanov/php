@@ -18,7 +18,7 @@ while ($row = $result->fetch_assoc()) {
 //checks values compared to values in post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	foreach ($_POST as $key => $value)
+	foreach ($_POST as $value)
 	{
 		if (in_array("$value", $all_user)
 		{
