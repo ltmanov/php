@@ -32,24 +32,13 @@ while ($row = $result->fetch_assoc()) {
 //
 // 	}
 // }
-
-
-
 $user_data=array();
-
-$follow_xor=array();
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
 $result2 = $conn->query($sql2);
 while ($row2 = $result2->fetch_assoc()) {
 		$user_data[]=$row2['follow_by'];
 }
 //var_dump($user_data);
-
-
-
-
-
-//this handles the checking to make sure users are properly displayed when following
 function checkUser($user,$user_data )
 {
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
