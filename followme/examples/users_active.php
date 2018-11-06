@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		foreach($_POST as $key => $value2)
 		{
 			echo "val 1: ".$value1. " --- val 2: ".$value2."<br />";
-			if ($value1==$value2)
-				{ echo " This value is in! <br />"}
+			if ($value1==$value2){ echo " This value is in! <br />"}
 		}
 	}
 }
