@@ -12,9 +12,9 @@ $result = $conn->query($sql);
 //deaaring all users array
 $all_user=array();
 //this generates an array of all userid in the db
-while ($row = $result->fetch_assoc()) {
-	$all_user[]=$row['userid'];
-}
+// while ($row = $result->fetch_assoc()) {
+// 	$all_user[]=$row['userid'];
+// }
 //checks values compared to values in post
 // if ($_SERVER['REQUEST_METHOD'] == 'POST')
 // {
