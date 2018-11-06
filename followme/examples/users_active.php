@@ -19,12 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	// foreach($_POST['name_for_the_items'] as $item)
 	// {
-	// 	if (in_array("$value", $all_user)	{			echo "This user is in!";		}
-	// 	if (!(in_array("$value", $all_user)){		echo "This user is not in!";	}
+
 	// }
 	foreach($_POST as $key => $value)
 	{
-  	echo "POST parameter '$key' has '$value' <br />";
+  	echo "POST parameter '$key' has '$value' : ";
+		if (in_array("$value", $all_user)	{			echo "This user is in! <br />";		}
+		if (!(in_array("$value", $all_user)){		echo "This user is not in! <br />";	}
 	}
 }
 
