@@ -7,8 +7,7 @@ $db_name = 'lev';
 $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
 if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
-$sql="SELECT * FROM fm_users";
-$result = $conn->query($sql);
+
 //deaaring all users array
 $all_user=array();
 //this generates an array of all userid in the db
@@ -99,8 +98,8 @@ function checkUser($user,$user_data )
 		<div class="col-md-6 ml-auto mr-auto">
 				<ul class="list-unstyled follows">
 <?php
-//$sql="SELECT * FROM fm_users";
-//$result = $conn->query($sql);
+$sql="SELECT * FROM fm_users";
+$result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
 		$_user_id = $row['userid'];
 		$_user_firstname = $row['firstname'];
