@@ -36,22 +36,15 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 
 
 $user_data=array();
-
-
 $sql2 = "SELECT * FROM fm_follow WHERE user_id = " . $_SESSION['userid'];
 $result2 = $conn->query($sql2);
-while ($row2 = $result2->fetch_assoc()) {
+while ($row2 = $result2->fetch_assoc())
+{
 		$user_data[]=$row2['follow_by'];
 }
 //var_dump($user_data);
-
-
-
-
-
-//this handles the checking to make sure users are properly displayed when following
 function checkUser($user,$user_data )
-{
+{//this handles the checking to make sure users are properly displayed when following
   if (in_array("$user", $user_data)) {echo "checked";}// else {echo "checked";}
 }
 ?>
@@ -110,8 +103,8 @@ function checkUser($user,$user_data )
 		<div class="col-md-6 ml-auto mr-auto">
 				<ul class="list-unstyled follows">
 <?php
-//$sql="SELECT * FROM fm_users";
-//$result = $conn->query($sql);
+$sql="SELECT * FROM fm_users";
+$result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
 		$_user_id = $row['userid'];
 		$_user_firstname = $row['firstname'];
