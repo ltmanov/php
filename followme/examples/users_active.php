@@ -18,15 +18,15 @@ while ($row = $result->fetch_assoc())
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	//var_dump($all_user);
-	//foreach ($all_user as $value1) {
+	foreach ($all_user as $value1) {
 		foreach($_POST as $key => $value2)
 		{
 			//echo "val 1: ".$value1. " --- val 2: ".$value2."<br />";
-			//if ($value1 == $value2){ echo " This value is in! <br />";}
-			if (in_array("$value2", $all_user)) {echo "IN ARRAY: ".$value2."<br />";}
+			if ($value1 == $value2){ echo " This value is in! <br />";}
+			//if (in_array("$value2", $all_user)) {echo "IN ARRAY: ".$value2."<br />";}
 			if (!(in_array("$value2", $all_user))) {echo "NOT IN ARRAY: ".$value2."<br />";}
 		}
-	//}
+	}
 }
 
 
