@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$found=0;
 			if ($value1 == $value2){ echo " This value: ".$value1." is in! <br />"; $found=1; break;
-			$sql3 ="INSERT INTO fm_follow (user_id, follow_by) VALUES ('$main_user','$value2')";
+			$sql3 ="INSERT INTO fm_follow (user_id, follow_by) VALUES ($main_user,$value1)";
 			$result3 = $conn->query($sql3);
 			}
 		}
