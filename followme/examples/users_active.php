@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$found=0;
 			if ($value1 == $value2){ echo " This value: ".$value1." is in! <br />"; $found=1; break;
-			$sql3 ="INSERT INTO fm_follow VALUES ($main_user,$value1)";
+			$sql3 ="INSERT INTO fm_follow VALUES ($main_user,$value2)";
 			$result3 = $conn->query($sql3);
 			}
 		}
 		if ($found==0){echo "This value: ".$value1." is NOT FOUND! <br />";
 			$sql4 ="DELETE FROM fm_follow WHERE user_id='$main_user' AND follow_by='$value1'";
-			$result4 = $conn->query($sql4);	
+			$result4 = $conn->query($sql4);
 
 		}
 	}
