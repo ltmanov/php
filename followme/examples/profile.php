@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('dbconnection.php');
 // echo $_SESSION['email'];
 // echo "<br />";
 // echo $_SESSION['password'];
