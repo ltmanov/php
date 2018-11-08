@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </div>
 	<div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav ml-auto">
-				<?php require('nav.php'); ?>
+				<?php require('nav.php');//location of navigation bar is here ?>
     </ul>
   </div>
 </div>

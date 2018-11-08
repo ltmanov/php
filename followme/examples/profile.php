@@ -99,7 +99,45 @@ session_start();
                     <div class="tab-pane active" id="follows" role="tabpanel">
                         <div class="row">
                             <div class="col-md-6 ml-auto mr-auto">
-                                <ul class="list-unstyled follows">
+                              <ul class="list-unstyled follows">
+                      <?php
+                      $sql="SELECT * FROM fm_users";
+                      $result = $conn->query($sql);
+                      while ($row = $result->fetch_assoc()) {
+                          $_user_id = $row['userid'];
+                          $_user_firstname = $row['firstname'];
+                          $_user_lastname = $row['lastname'];
+                          $_user_title = $row['title'];
+                          $_user_image = $row['image'];
+                          //generates an array of all users
+                          $all_user[]=$row['userid'];
+                      ?>
+                      <li>
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                          <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                          </div>
+                      <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+                        <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
+                          <small><?php echo $_user_title ?></small></h6>
+                      </div>
+                      <div class="col-md-3 col-sm-2  ml-auto mr-auto">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
+                              value="<?php echo $_user_id ?>" >
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                      </div>
+                      </li>
+                      <hr />
+                      <?php } ?>
+                      </div>
+                      </ul>
+
+                                <!-- <ul class="list-unstyled follows">
                                     <li>
                                         <div class="row">
                                             <div class="col-md-2 col-sm-2 ml-auto mr-auto">
@@ -137,7 +175,7 @@ session_start();
                                             </div>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
