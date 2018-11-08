@@ -10,7 +10,7 @@ if ($conn->connect_error){ die("Connection failed: ". $conn->connect_error);}
 $main_user = $_SESSION['userid'];
 
 $sql="SELECT * FROM fm_users";
-$result = $conn->query($sqly);
+$result = $conn->query($sql);
 $all_user=array();
 
 while ($row = $result->fetch_assoc()){	$all_user[]=$row['userid'];}
