@@ -58,8 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </div>
 	<div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav ml-auto">
-			 <li class="nav-item">	<a href="login.php" class="nav-link">Log In</a> </li>
-			  <li class="nav-item">	<a href="#" class="nav-link"><?php echo $_SESSION['email']; ?></a></li>
+				<?php require('nav.php'); ?>
     </ul>
   </div>
 </div>
