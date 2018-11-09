@@ -221,6 +221,8 @@ require('dbconnection.php');
   <?php } ?>
   </div>
   </ul>
+</div>
+</div>
 
 </div>
 </div>
