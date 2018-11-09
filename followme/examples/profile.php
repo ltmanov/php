@@ -29,23 +29,23 @@ require('dbconnection.php');
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
-        <div class="container">
-			<div class="navbar-translate">
-          <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-bar"></span>
-						<span class="navbar-toggler-bar"></span>
-						<span class="navbar-toggler-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">FOLLOW ME</a>
-			</div>
-					<div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">
-							 <?php require('nav.php'); ?>
-            </ul>
-			    </div>
-		</div>
-    </nav>
+<nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
+  <div class="container">
+  <div class="navbar-translate">
+  <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  	<span class="navbar-toggler-bar"></span>
+  	<span class="navbar-toggler-bar"></span>
+  	<span class="navbar-toggler-bar"></span>
+  </button>
+  <a class="navbar-brand" href="#">FOLLOW ME</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav ml-auto">
+  		 <?php require('nav.php'); ?>
+    </ul>
+  </div>
+  </div>
+</nav>
 
 <div class="wrapper">
 <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
@@ -82,6 +82,7 @@ require('dbconnection.php');
   </ul>
 </div>
 </div>
+
 <!-- Tab panes -->
 <div class="tab-content following">
 
@@ -128,7 +129,6 @@ require('dbconnection.php');
 
 </div>
 </div>
-</div>
 
 <div class="tab-pane text-center" id="following" role="tabpanel">
     <div class="row">
@@ -172,7 +172,7 @@ require('dbconnection.php');
   </ul>
 </div>
 </div>
-
+</div>
 
 
 <footer class="footer section-dark">
