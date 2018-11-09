@@ -134,7 +134,7 @@ $main_user = $_SESSION['userid'];
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
             <?php
-            $sql="SELECT * FROM fm_users";
+            $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
             $result = $conn->query($sql);
             while ($row = $result->fetch_assoc()) {
                 $_user_id = $row['userid'];
