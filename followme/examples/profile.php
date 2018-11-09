@@ -92,9 +92,9 @@ $main_user = $_SESSION['userid'];
       <div class="col-md-6 ml-auto mr-auto">
         <ul class="list-unstyled follows">
           <?php
-          $sql_1="SELECT * FROM fm_users, fm_follow WHERE fm_follow.user_id = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
-          $result1 = $conn->query($sql_1);
-          while ($row1 = $result1->fetch_assoc()) {
+          $sql="SELECT * FROM fm_users, fm_follow WHERE fm_follow.user_id = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
+          $result = $conn->query($sql);
+          while ($row = $result->fetch_assoc()) {
               $_user_id = $row['userid'];
               $_user_firstname = $row['firstname'];
               $_user_lastname = $row['lastname'];
@@ -134,9 +134,9 @@ $main_user = $_SESSION['userid'];
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
             <?php
-            $sql_2="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
-            $result2 = $conn->query($sql_2);
-            while ($row2 = $result2->fetch_assoc()) {
+            $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
+            $result = $conn->query($sql);
+            while ($row = $result->fetch_assoc()) {
                 $_user_id = $row['userid'];
                 $_user_firstname = $row['firstname'];
                 $_user_lastname = $row['lastname'];
