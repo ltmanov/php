@@ -60,83 +60,84 @@ require('dbconnection.php');
 		</div>
     </nav>
 
-    <div class="wrapper">
-        <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-			<div class="filter"></div>
-		</div>
-        <div class="section profile-content">
-            <div class="container">
-                <div class="owner">
-                    <div class="avatar">
-                        <img src="<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                    <div class="name">
-                        <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
-						            <h6 class="description"><?php echo $_SESSION['title'];?></h6>
-                    </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p><?php echo $_SESSION['descr']; ?> </p>
-                        <br />
-                        <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
-                    </div>
-                </div>
-                <br/>
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Tab panes -->
-                <div class="tab-content following">
-                    <div class="tab-pane active" id="follows" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-6 ml-auto mr-auto">
-                              <ul class="list-unstyled follows">
-                      <?php
-                      $sql="SELECT * FROM fm_users";
-                      $result = $conn->query($sql);
-                      while ($row = $result->fetch_assoc()) {
-                          $_user_id = $row['userid'];
-                          $_user_firstname = $row['firstname'];
-                          $_user_lastname = $row['lastname'];
-                          $_user_title = $row['title'];
-                          $_user_image = $row['image'];
-                          //generates an array of all users
-                          $all_user[]=$row['userid'];
-                      ?>
-                      <li>
-                      <div class="row">
-                        <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                          <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                          </div>
-                      <div class="col-md-7 col-sm-4  ml-auto mr-auto">
-                        <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
-                          <small><?php echo $_user_title ?></small></h6>
-                      </div>
-                      <div class="col-md-3 col-sm-2  ml-auto mr-auto">
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
-                              value="<?php echo $_user_id ?>" >
-                            <span class="form-check-sign"></span>
-                          </label>
-                        </div>
-                      </div>
-                      </div>
-                      </li>
-                      <hr />
-                      <?php } ?>
-                      </div>
-                      </ul>
+<div class="wrapper">
+<div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+<div class="filter"></div>
+</div>
+<div class="section profile-content">
+<div class="container">
+<div class="owner">
+<div class="avatar">
+  <img src="<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+</div>
+<div class="name">
+  <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
+  <h6 class="description"><?php echo $_SESSION['title'];?></h6>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 ml-auto mr-auto text-center">
+<p><?php echo $_SESSION['descr']; ?> </p>
+  <br />
+  <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
+</div>
+</div>
+<br/>
+<div class="nav-tabs-navigation">
+<div class="nav-tabs-wrapper">
+  <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
+      </li>
+  </ul>
+</div>
+</div>
+<!-- Tab panes -->
+<div class="tab-content following">
+
+<div class="tab-pane active" id="follows" role="tabpanel">
+  <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <ul class="list-unstyled follows">
+          <?php
+          $sql="SELECT * FROM fm_users";
+          $result = $conn->query($sql);
+          while ($row = $result->fetch_assoc()) {
+              $_user_id = $row['userid'];
+              $_user_firstname = $row['firstname'];
+              $_user_lastname = $row['lastname'];
+              $_user_title = $row['title'];
+              $_user_image = $row['image'];
+              //generates an array of all users
+              $all_user[]=$row['userid'];
+          ?>
+<li>
+<div class="row">
+  <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+    <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+    </div>
+<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+  <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
+    <small><?php echo $_user_title ?></small></h6>
+</div>
+<div class="col-md-3 col-sm-2  ml-auto mr-auto">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
+        value="<?php echo $_user_id ?>" >
+      <span class="form-check-sign"></span>
+    </label>
+  </div>
+</div>
+</div>
+</li>
+<hr />
+<?php } ?>
+</div>
+</ul>
 
                                 <!-- <ul class="list-unstyled follows">
                                     <li>
@@ -177,35 +178,73 @@ require('dbconnection.php');
                                         </div>
                                     </li>
                                 </ul> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane text-center" id="following" role="tabpanel">
-                        <h3 class="text-muted">Not following anyone yet :(</h3>
-                        <button class="btn btn-warning btn-round">Find artists</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
+</div>
+</div>
+<div class="tab-pane text-center" id="following" role="tabpanel">
+    <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <ul class="list-unstyled follows">
+            <?php
+            $sql="SELECT * FROM fm_users";
+            $result = $conn->query($sql);
+            while ($row = $result->fetch_assoc()) {
+                $_user_id = $row['userid'];
+                $_user_firstname = $row['firstname'];
+                $_user_lastname = $row['lastname'];
+                $_user_title = $row['title'];
+                $_user_image = $row['image'];
+                //generates an array of all users
+                $all_user[]=$row['userid'];
+            ?>
+  <li>
+  <div class="row">
+    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+      <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+      </div>
+  <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+    <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
+      <small><?php echo $_user_title ?></small></h6>
+  </div>
+  <div class="col-md-3 col-sm-2  ml-auto mr-auto">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
+          value="<?php echo $_user_id ?>" >
+        <span class="form-check-sign"></span>
+      </label>
     </div>
-	<footer class="footer section-dark">
-        <div class="container">
-            <div class="row">
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
-                        <li><a href="http://blog.creative-tim.com">Blog</a></li>
-                        <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
-                    </ul>
-                </nav>
-                <div class="credits ml-auto">
-                    <span class="copyright">
-                        © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                    </span>
-                </div>
-            </div>
-        </div>
-    </footer>
+  </div>
+  </div>
+  </li>
+  <hr />
+  <?php } ?>
+  </div>
+  </ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer section-dark">
+<div class="container">
+<div class="row">
+<nav class="footer-nav">
+<ul>
+<li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+<li><a href="http://blog.creative-tim.com">Blog</a></li>
+<li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+</ul>
+</nav>
+<div class="credits ml-auto">
+<span class="copyright">
+© <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+</span>
+</div>
+</div>
+</div>
+</footer>
 </body>
 
 <!-- Core JS Files -->
