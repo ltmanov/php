@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('dbconnection.php');
+$main_user = $_SESSION['userid'];
  ?>
 <!doctype html>
 <html lang="en">
@@ -91,7 +92,7 @@ require('dbconnection.php');
       <div class="col-md-6 ml-auto mr-auto">
         <ul class="list-unstyled follows">
           <?php
-          $sql="SELECT * FROM fm_users";
+          $sql="SELECT * FROM fm_users, fm_follow WHERE fm_follow.user_id = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
           $result = $conn->query($sql);
           while ($row = $result->fetch_assoc()) {
               $_user_id = $row['userid'];
@@ -114,8 +115,7 @@ require('dbconnection.php');
 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
   <div class="form-check">
     <label class="form-check-label">
-      <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
-        value="<?php echo $_user_id ?>" >
+      <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox" value="<?php echo $_user_id ?>" >
       <span class="form-check-sign"></span>
     </label>
   </div>
@@ -126,10 +126,9 @@ require('dbconnection.php');
 <?php } ?>
 </div>
 </ul>
-
 </div>
 </div>
-
+<!-- begins the other following tab -->
 <div class="tab-pane text-center" id="following" role="tabpanel">
     <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
@@ -158,8 +157,7 @@ require('dbconnection.php');
   <div class="col-md-3 col-sm-2  ml-auto mr-auto">
     <div class="form-check">
       <label class="form-check-label">
-        <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox"
-          value="<?php echo $_user_id ?>" >
+        <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox" value="<?php echo $_user_id ?>" >
         <span class="form-check-sign"></span>
       </label>
     </div>
