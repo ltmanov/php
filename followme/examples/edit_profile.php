@@ -103,21 +103,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </div>
 <!-- ends first row -->
 
-<?php
-// echo $_SESSION['email'];
-// echo "<br />";
-// echo $_SESSION['password'];
-// echo "<br />";
-//
-// echo "<br />";
-//
-// echo "<br />";
-// echo $_SESSION['image'];
-// echo "<br />";
-//
-// echo "<br />";
-//
-?>
 <label>Title</label>
 <div class="input-group">
 <span class="input-group-addon">
@@ -126,9 +111,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <input type="text" name="title" class="form-control" placeholder="<?php echo $_SESSION['title']; ?>">
 </div>
 
+<label>Message</label>
+<textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['descr']; ?>"></textarea>
+
 <?php
-
-
 //var_dump($_FILES['upload']);// shows what variable is
 // echo "<hr />"
 if ( isset($_FILES['upload']) ) {
@@ -184,8 +170,6 @@ if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $targ
 <h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5>
 
 
-<label>Message</label>
-<textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['descr']; ?>"></textarea>
 <div class="row">
   <div class="col-md-4 ml-auto mr-auto">
      <button class="btn btn-danger btn-lg btn-fill">Update</button>
