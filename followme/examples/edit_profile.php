@@ -110,45 +110,44 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <label>Message</label>
 <textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['descr']; ?>"></textarea>
 
+
 <?php
+if (isset($_FILES['upload']) ) {
 
-if ( isset($_FILES['upload']) ) {
-  if ( !file_exists("uploads")){mkdir("./uploads");}//if uploads doesnt exist, make it
+	if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
 
+	if (!file_exists("images/" . $_SESSION['userid'])) {
+	  mkdir("images/" . $_SESSION['userid'],0777,true); }
 
-if (!file_exists("uploads/" . $_SESSION['username'])) {
-  mkdir("uploads/" . $_SESSION['username'],0777,true); }
+	$target_dir = "images/" . $_SESSION['userid'] . "/";
+	$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
+	$uploadVerification=true;
 
-$target_dir = "uploads/" . $_SESSION['username'] . "/";
-$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
-$uploadVerification=true;
+	//check to see if file exists
+	if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 
-//check to see if file exists
-if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+	$file_type = $_FILES['upload']['type'];
+	switch ($file_type){
+	  case "image/jpeg":
+	    $uploadVerification = true;
+	    break;
+	  case "image/png":
+	    $uploadVerification = true;
+	    break;
+	  case "image/gif":
+	    $uploadVerification = true;
+	    break;
+	  case "application/pdf":
+	    $uploadVerification = true;
+	    break;
+	  default:
+	    $uploadVerification = false;
+	    $ret = "Sorry only jpg, png, gif, and pdf files are allowed";
+	}
 
+	if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-$file_type = $_FILES['upload']['type'];
-switch ($file_type){
-  case "image/jpeg":
-    $uploadVerification = true;
-    break;
-  case "image/png":
-    $uploadVerification = true;
-    break;
-  case "image/gif":
-    $uploadVerification = true;
-    break;
-  case "application/pdf":
-    $uploadVerification = true;
-    break;
-  default:
-    $uploadVerification = false;
-    $ret = "Sorry only jpg, png, gif, and pdf files are allowed";
-}
-
-if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
-
-if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
+	if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 }
  ?>
 
@@ -159,9 +158,10 @@ if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $targ
 	   <br />
 	   <!-- <input type="submit"> -->
 	 </form>
+	  <label><h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5></label>
  </div>
 
-<h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5>
+
 
 
 <div class="row">
