@@ -75,7 +75,7 @@ $main_user = $_SESSION['userid'];
 <div class="nav-tabs-wrapper">
   <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
+          <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Followers</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
@@ -92,7 +92,8 @@ $main_user = $_SESSION['userid'];
       <div class="col-md-6 ml-auto mr-auto">
         <ul class="list-unstyled follows">
           <?php
-          $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
+          $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
+          
           $result = $conn->query($sql);
           while ($row = $result->fetch_assoc()) {
               $_user_id = $row['userid'];
@@ -134,7 +135,8 @@ $main_user = $_SESSION['userid'];
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
             <?php
-            $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
+            $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
+
             $result = $conn->query($sql);
             while ($row = $result->fetch_assoc()) {
                 $_user_id = $row['userid'];
