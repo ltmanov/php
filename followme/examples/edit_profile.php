@@ -2,7 +2,7 @@
 session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {//connection setup
-require('dbconnection.php');
+	require('dbconnection.php');
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
   title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
   $result = $conn->query($sql);
@@ -20,6 +20,7 @@ require('dbconnection.php');
   }//ends while loop for post checking
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -110,17 +111,13 @@ require('dbconnection.php');
 <textarea class="form-control" name="message" rows="4" placeholder="<?php echo $_SESSION['descr']; ?>"></textarea>
 
 <?php
-//var_dump($_FILES['upload']);// shows what variable is
-// echo "<hr />"
+
 if ( isset($_FILES['upload']) ) {
-  if ( !file_exists("uploads")){
-    //if uploads doesnt exist, make it
-    mkdir("./uploads");
-  }
+  if ( !file_exists("uploads")){mkdir("./uploads");}//if uploads doesnt exist, make it
+
 
 if (!file_exists("uploads/" . $_SESSION['username'])) {
-  mkdir("uploads/" . $_SESSION['username'],0777,true);
-}
+  mkdir("uploads/" . $_SESSION['username'],0777,true); }
 
 $target_dir = "uploads/" . $_SESSION['username'] . "/";
 $target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
@@ -129,7 +126,7 @@ $uploadVerification=true;
 //check to see if file exists
 if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 
-//$finfo = finfo_open(FILEINFO_MIME_TYPES);
+
 $file_type = $_FILES['upload']['type'];
 switch ($file_type){
   case "image/jpeg":
@@ -155,12 +152,14 @@ if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $targ
 }
  ?>
 
- Upload Your File:
- <form action="" method="post" enctype="multipart/form-data">
-   <input type="file" name="upload">
-   <br />
-   <input type="submit">
- </form>
+ <label>Upload Your File:</label>
+ <div class="input-group">
+	 <form action="" method="post" enctype="multipart/form-data">
+	   <input type="file" name="upload">
+	   <br />
+	   <!-- <input type="submit"> -->
+	 </form>
+ </div>
 
 <h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5>
 
@@ -175,7 +174,7 @@ if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $targ
 </div>
 </div>
 </div>
-</div>
+</div> <!-- ends the wrapper class -->
 
 <footer class="footer section-dark">
   <div class="container">
