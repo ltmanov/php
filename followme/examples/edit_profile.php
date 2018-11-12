@@ -127,17 +127,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </div>
 
 <?php
-if (!isset($_SESSION))
-{
-  session_start();
-}//checks if global variable for session is set
-if (!isset($_SESSION['username']))
-{//die("Don't even think about it")
-  header('Location: login.php');
-}
-require('nav.php');
 
-var_dump($_FILES['upload']);// shows what variable is
+
+//var_dump($_FILES['upload']);// shows what variable is
 // echo "<hr />"
 if ( isset($_FILES['upload']) ) {
   if ( !file_exists("uploads")){
