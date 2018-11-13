@@ -1,5 +1,45 @@
 <?php
 session_start();
+
+if (isset($_FILES['upload']) ) {
+
+	if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
+
+	if (!file_exists("images/" . $_SESSION['userid'])) {
+		mkdir("images/" . $_SESSION['userid'],0777,true); }
+
+	$target_dir = "images/" . $_SESSION['userid'] . "/";
+	$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
+	$uploadVerification=true;
+
+	//check to see if file exists
+	if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+
+	$file_type = $_FILES['upload']['type'];
+	switch ($file_type){
+		case "image/jpeg":
+			$uploadVerification = true;
+			break;
+		case "image/png":
+			$uploadVerification = true;
+			break;
+		case "image/gif":
+			$uploadVerification = true;
+			break;
+		case "application/pdf":
+			$uploadVerification = true;
+			break;
+		default:
+			$uploadVerification = false;
+			$ret = "Sorry only jpg, png, gif, and pdf files are allowed";
+	}
+
+	if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
+
+	if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
+}
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {//connection setup
 	require('dbconnection.php');
@@ -18,45 +58,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			header('Location: profile.php');
     }
   }//ends while loop for post checking
-
-	if (isset($_FILES['upload']) ) {
-
-		if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
-
-		if (!file_exists("images/" . $_SESSION['userid'])) {
-		  mkdir("images/" . $_SESSION['userid'],0777,true); }
-
-		$target_dir = "images/" . $_SESSION['userid'] . "/";
-		$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
-		$uploadVerification=true;
-
-		//check to see if file exists
-		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
-
-		$file_type = $_FILES['upload']['type'];
-		switch ($file_type){
-		  case "image/jpeg":
-		    $uploadVerification = true;
-		    break;
-		  case "image/png":
-		    $uploadVerification = true;
-		    break;
-		  case "image/gif":
-		    $uploadVerification = true;
-		    break;
-		  case "application/pdf":
-		    $uploadVerification = true;
-		    break;
-		  default:
-		    $uploadVerification = false;
-		    $ret = "Sorry only jpg, png, gif, and pdf files are allowed";
-		}
-
-		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
-
-		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
-	}
-
 }
 ?>
 
