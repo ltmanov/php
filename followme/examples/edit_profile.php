@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <h2 class="text-center">Edit Your Profile!</h2>
 
 <!-- begins first row -->
-<form class="contact-form" action ="" method="post">
+<form class="contact-form" action ="" method="post" enctype="multipart/form-data">
 <div class="row">
 
 <div class="col-md-6">
@@ -153,11 +153,11 @@ if (isset($_FILES['upload']) ) {
 
  <label>Upload Your File:</label>
  <div class="input-group">
-	 <form action="" method="post" enctype="multipart/form-data">
+	   <input type="file" name="upload">
+	 <!-- <form action="" method="post" enctype="multipart/form-data">
 	   <input type="file" name="upload">
 	   <br />
-	   <!-- <input type="submit"> -->
-	 </form>
+	   <input type="submit"> -->
 	  <label><h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5></label>
  </div>
 
