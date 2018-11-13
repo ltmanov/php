@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST')
-{//connection setup
+{
 	require('dbconnection.php');
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
   title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
@@ -21,13 +21,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 	if (isset($_FILES['upload']) ) {
 
-		if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
+		//if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
 
-		if (!file_exists("images/" . $_SESSION['userid'])) {
-			mkdir("images/" . $_SESSION['userid'],0777,true); }
+		//if (!file_exists("images/" . $_SESSION['userid'])) { mkdir("images/" . $_SESSION['userid'],0777,true); }
 
-		$target_dir = "images/" . $_SESSION['userid'] . "/";
+		$target_dir = "images/"; // . $_SESSION['userid'] . "/";
+
 		$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
+
 		$uploadVerification=true;
 
 		//check to see if file exists
@@ -102,10 +103,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 </nav>
 
 <div class="wrapper">
-    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-        <div class="filter">
-        </div>
-   </div>
+<div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+<div class="filter">
+</div>
+</div>
 
 <div class="section landing-section">
 <div class="container">
