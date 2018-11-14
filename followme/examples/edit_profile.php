@@ -4,7 +4,8 @@ require('dbconnection.php');
 
 $sql_main="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
 $result_main = $conn->query($sql_main);
-while ($row = $result_main->fetch_assoc()) {
+while ($row = $result_main->fetch_assoc())
+{
 	if ($_SESSION['userid'] == $row['userid'])
 	{
 		$_SESSION['firstname'] = $row['firstname'];
@@ -33,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 
 		$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
 		$result2 = $conn->query($sql2);
@@ -44,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		header('Location: profile.php');
 }// ends if post server access
+
 ?>
 
 <!doctype html>
