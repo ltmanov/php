@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$target_file = $target_dir . basename($_FILES['upload']['name']);
 		$uploadVerification=true;
 
-		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+		//if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 
 		$file_type = $_FILES['upload']['type'];
 
