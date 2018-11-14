@@ -1,8 +1,51 @@
 <?php
 session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	require('dbconnection.php');
+
+	if (isset($_FILES['upload']) ) {
+
+		$target_dir = "images/";
+		$target_file = $target_dir . basename($_FILES['upload']['name']);
+		$uploadVerification=true;
+
+		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+
+		$file_type = $_FILES['upload']['type'];
+
+		switch ($file_type){
+			case "image/jpeg":
+				$uploadVerification = true;
+				break;
+			case "image/png":
+				$uploadVerification = true;
+				break;
+			case "image/gif":
+				$uploadVerification = true;
+				break;
+			default:
+				$uploadVerification = false;
+				$ret = "Sorry only jpg, png, and gif files are allowed!";
+		}
+
+		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
+
+		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+			//adds sql UPDATE
+			//$file_name = basename($_FILES['upload']['tmp_name']);
+			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
+			$result2 = $conn->query($sql2);
+			while ($row2 = $result2->fetch_assoc()) {
+				if (($_SESSION['userid'] == $row['userid']))
+				{
+					$_SESSION['image'] = $row2['image'];
+				}
+			}
+		}
+	}//ends if post
+
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
   title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
   $result = $conn->query($sql);
@@ -15,64 +58,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['title'] = $row['title'];
 			$_SESSION['descr'] = $row['descr'];
-			$_SESSION['image'] = $row['image'];
-			//header('Location: profile.php');
+
+			header('Location: profile.php');
     }
   }//ends while loop for post checking
 
-	if (isset($_FILES['upload']) ) {
-
-		//if (!file_exists("images")){mkdir("./images");}//if uploads doesnt exist, make it
-
-		//if (!file_exists("images/" . $_SESSION['userid'])) { mkdir("images/" . $_SESSION['userid'],0777,true); }
-
-		$target_dir = "images/"; // . $_SESSION['userid'] . "/";
-
-		$target_file = $target_dir . basename($_FILES['upload']['name']);//location to put
-
-		$uploadVerification=true;
-
-		//check to see if file exists
-		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
-
-		$file_type = $_FILES['upload']['type'];
-		switch ($file_type){
-			case "image/jpeg":
-				$uploadVerification = true;
-				break;
-			case "image/png":
-				$uploadVerification = true;
-				break;
-			case "image/gif":
-				$uploadVerification = true;
-				break;
-			case "application/pdf":
-				$uploadVerification = true;
-				break;
-			default:
-				$uploadVerification = false;
-				$ret = "Sorry only jpg, png, gif, and pdf files are allowed";
-		}
-
-		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
-
-		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-			//adds sql UPDATE
-			//$file_name = basename($_FILES['upload']['tmp_name']);
-			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
-		  $result2 = $conn->query($sql2);
-			while ($row2 = $result2->fetch_assoc()) {
-		    if (($_SESSION['userid'] == $row['userid']))
-				{
-					$_SESSION['image'] = $row2['image'];
-		    }
-			}
-		}
-	}
-
-
-
-}
+}// ends if post server access
 ?>
 
 <!doctype html>
@@ -166,13 +157,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <label>Upload A New Profile Picture:</label>
 <input type="file" name="upload">
-
+<label><?php if($ret){echo $ret;}  ?></label>
  <!-- <label>Upload A New Profile Picture:</label>
  <div class="input-group">
 	 <form action="" method="post" enctype="multipart/form-data">
 	   <input type="file" name="upload">
 	   <input type="submit">
-	  <label><h5 style="color:red;"> <?php if($ret){echo $ret;}  ?> </h5></label>
+	  <label><h5 style="color:red;">  </h5></label>
  </div> -->
 
 <div class="row">
