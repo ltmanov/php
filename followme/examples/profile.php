@@ -2,6 +2,14 @@
 session_start();
 require('dbconnection.php');
 $main_user = $_SESSION['userid'];
+$sql="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+  if (($_SESSION['userid'] == $row['userid']))
+  {
+    $_SESSION['image'] = $row['image'];
+  }
+}//ends while loop for post checking
  ?>
 <!doctype html>
 <html lang="en">
@@ -93,7 +101,7 @@ $main_user = $_SESSION['userid'];
         <ul class="list-unstyled follows">
           <?php
           $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
-          
+
           $result = $conn->query($sql);
           while ($row = $result->fetch_assoc()) {
               $_user_id = $row['userid'];
