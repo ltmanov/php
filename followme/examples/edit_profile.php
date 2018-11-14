@@ -16,53 +16,33 @@ while ($row = $result_main->fetch_assoc()) {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	if (isset($_FILES['upload']) )
-	{
 		$target_dir = "images/";
 		$target_file = $target_dir . basename($_FILES['upload']['name']);
 		$uploadVerification=true;
-		//if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 		$file_type = $_FILES['upload']['type'];
 
 		switch ($file_type)
 		{
-			case "image/jpeg":
-				$uploadVerification = true;
-				break;
-			case "image/png":
-				$uploadVerification = true;
-				break;
-			case "image/gif":
-				$uploadVerification = true;
-				break;
-			default:
-				$uploadVerification = false;
-				$ret = "Sorry only jpg, png, and gif files are allowed!";
+			case "image/jpeg":$uploadVerification = true;	break;
+			case "image/png":	$uploadVerification = true;	break;
+			case "image/gif":	$uploadVerification = true;	break;
+			default: $uploadVerification = false;
+			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-		if ($uploadVerification)
-		{
-			move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
 
-			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
-			$result2 = $conn->query($sql2);
-			while ($row2 = $result2->fetch_assoc())
-			{
-				if (($_SESSION['userid'] == $row2['userid']))
-				{
-					$_SESSION['image'] = $row2['image'];
-				}
-			}
-		}//if upload veri
-	}
+		$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
+		$result2 = $conn->query($sql2);
 
-  //$sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
-  //$result_update = $conn->query($sql_u);
 
-	header('Location: profile.php');
+		$sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
+		$result_update = $conn->query($sql_u);
 
+		header('Location: profile.php');
 }// ends if post server access
 ?>
 
