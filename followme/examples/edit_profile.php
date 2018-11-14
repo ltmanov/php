@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				}
 			}
 		}
-	}//ends if post
+
 
   $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
   title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
