@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['lastname'] = $row['lastname'];
 			$_SESSION['title'] = $row['title'];
 			$_SESSION['descr'] = $row['descr'];
+			$_SESSION['image'] = $row['image'];
 			header('Location: profile.php');
     }
   }//ends while loop for post checking
@@ -55,7 +56,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
+		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+			//adds sql UPDATE
+			$file_name=basename($_FILES['upload']['name']);
+			$sql2 ="UPDATE fm_users SET image='"images/".$file_name' WHERE userid = " . $_SESSION['userid'];
+		  $result2 = $conn->query($sql2);
+		}
 	}
 
 
