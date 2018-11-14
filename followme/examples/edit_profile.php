@@ -61,6 +61,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			//$file_name = basename($_FILES['upload']['tmp_name']);
 			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
 		  $result2 = $conn->query($sql2);
+			while ($row2 = $result2->fetch_assoc()) {
+		    if (($_SESSION['userid'] == $row['userid']))
+				{
+					$_SESSION['image'] = $row2['image'];
+		    }
 		}
 	}
 
