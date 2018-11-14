@@ -46,9 +46,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		}
 }
 
-  $sql ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
+  $sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
   title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
-  $result = $conn->query($sql);
+  $result_update = $conn->query($sql_u);
+
   $sql="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
