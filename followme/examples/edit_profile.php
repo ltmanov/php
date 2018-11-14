@@ -2,6 +2,18 @@
 session_start();
 require('dbconnection.php');
 
+$sql_main="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
+$result_main = $conn->query($sql_main);
+while ($row = $result_main->fetch_assoc()) {
+	if ($_SESSION['userid'] == $row['userid'])
+	{
+		$_SESSION['firstname'] = $row['firstname'];
+		$_SESSION['lastname'] = $row['lastname'];
+		$_SESSION['title'] = $row['title'];
+		$_SESSION['descr'] = $row['descr'];
+	}
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	if (isset($_FILES['upload']) )
@@ -31,9 +43,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
 		if ($uploadVerification)
-		{move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-			//adds sql UPDATE
-			//$file_name = basename($_FILES['upload']['tmp_name']);
+		{
+			move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+
 			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
 			$result2 = $conn->query($sql2);
 			while ($row2 = $result2->fetch_assoc())
@@ -43,26 +55,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					$_SESSION['image'] = $row2['image'];
 				}
 			}
-		}
+		}//if upload veri
 	}
 
-  $sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',
-  title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
+  $sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
   $result_update = $conn->query($sql_u);
 
-  $sql="SELECT * FROM fm_users WHERE userid = " . $_SESSION['userid'];
-  $result = $conn->query($sql);
-  while ($row = $result->fetch_assoc()) {
-    if ($_SESSION['userid'] == $row['userid'])
-		{
-      $_SESSION['firstname'] = $row['firstname'];
-			$_SESSION['lastname'] = $row['lastname'];
-			$_SESSION['title'] = $row['title'];
-			$_SESSION['descr'] = $row['descr'];
-
-			header('Location: profile.php');
-    }
-  }//ends while loop for post checking
+	header('Location: profile.php');
 
 }// ends if post server access
 ?>

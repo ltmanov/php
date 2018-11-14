@@ -8,9 +8,14 @@ while ($row = $result->fetch_assoc()) {
   if (($_SESSION['userid'] == $row['userid']))
   {
     $_SESSION['image'] = $row['image'];
+    $_SESSION['firstname'] = $row['firstname'];
+    $_SESSION['lastname'] = $row['lastname'];
+    $_SESSION['title'] = $row['title'];
+    $_SESSION['descr'] = $row['descr'];
   }
 }//ends while loop for post checking
- ?>
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
