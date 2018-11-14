@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['title'] = $row['title'];
 			$_SESSION['descr'] = $row['descr'];
 			$_SESSION['image'] = $row['image'];
-			header('Location: profile.php');
+			//header('Location: profile.php');
     }
   }//ends while loop for post checking
 
