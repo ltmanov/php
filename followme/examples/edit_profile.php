@@ -39,9 +39,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$target_file = $target_dir . $_SESSION['userid'] . $img_type; //NEW
 		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 
+		if (!$uploadVerification){
 		$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
 		$result2 = $conn->query($sql2);
-
+		}
+		
 		$sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
 		$result_update = $conn->query($sql_u);
 
