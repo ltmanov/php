@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			default: $uploadVerification = false;
 			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
-		$uploadVerification=true;
+		
 		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
