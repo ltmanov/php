@@ -17,33 +17,21 @@ while ($row = $result_main->fetch_assoc())
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-		// $target_dir = "images/";
-		// $target_file = $target_dir . basename($_FILES['upload']['name']);
-		// $uploadVerification=true;
-		// if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
-		// $file_type = $_FILES['upload']['type'];
-		//
-		// switch ($file_type)
-		// {
-		// 	case "image/jpeg":$uploadVerification = true;	break;
-		// 	case "image/png":	$uploadVerification = true;	break;
-		// 	case "image/gif":	$uploadVerification = true;	break;
-		// 	default: $uploadVerification = false;
-		// 	$ret = "Sorry only jpg, png, and gif files are allowed!";
-		// }
-
 		$target_dir = "images/";
+		$target_file = $target_dir . basename($_FILES['upload']['name']);
+		$uploadVerification=true;
+		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 		$file_type = $_FILES['upload']['type'];
+
 		switch ($file_type)
 		{
-			case "image/jpeg":$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."jpeg"; break;
-		//	case "image/jpg":$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."jpg"; break;
-			case "image/png":	$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."png"; break;
-			case "image/gif":	$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."gif"; break;
+			case "image/jpeg":$uploadVerification = true;	break;
+			case "image/png":	$uploadVerification = true;	break;
+			case "image/gif":	$uploadVerification = true;	break;
 			default: $uploadVerification = false;
 			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
-		
+
 		if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
