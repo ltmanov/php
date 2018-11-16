@@ -25,9 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		switch ($file_type)
 		{
-			case "image/jpeg":$uploadVerification = true; $img_type="jpg";	break;
-			case "image/png":	$uploadVerification = true;	$img_type="png"; break;
-			case "image/gif":	$uploadVerification = true;	$img_type="gif"; break;
+			case "image/jpeg":$uploadVerification = true; $img_type=".jpg";	break;
+			case "image/png":	$uploadVerification = true;	$img_type=".png"; break;
+			case "image/gif":	$uploadVerification = true;	$img_type=".gif"; break;
 			default: $uploadVerification = false;
 			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
