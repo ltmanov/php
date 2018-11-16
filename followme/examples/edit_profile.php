@@ -41,12 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 			$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
 			$result2 = $conn->query($sql2);
-
 		}
-
-
-
-
 
 		$sql_u ="UPDATE fm_users SET firstname='".$_POST['firstname']."', lastname='".$_POST['lastname']."',title='".$_POST['title']."', descr='".$_POST['descr']."' WHERE userid = " . $_SESSION['userid'];
 		$result_update = $conn->query($sql_u);
