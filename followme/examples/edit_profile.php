@@ -36,10 +36,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$file_type = $_FILES['upload']['type'];
 		switch ($file_type)
 		{
-			case "image/jpeg":$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."jpeg"; break;
-			case "image/jpg":$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."jpg"; break;
-			case "image/png":	$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."png"; break;
-			case "image/gif":	$uploadVerification = true;	$target_file = $target_dir . ($_SESSION['userid']."gif"; break;
+			case "image/jpeg":$uploadVerification = true;	$target_file = $target_dir . "($_SESSION['userid']"."jpeg"; break;
+			case "image/jpg":$uploadVerification = true;	$target_file = $target_dir . "($_SESSION['userid']"."jpg"; break;
+			case "image/png":	$uploadVerification = true;	$target_file = $target_dir . "($_SESSION['userid']"."png"; break;
+			case "image/gif":	$uploadVerification = true;	$target_file = $target_dir . "($_SESSION['userid']"."gif"; break;
 			default: $uploadVerification = false;
 			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
