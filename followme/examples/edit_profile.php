@@ -25,9 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		switch ($file_type)
 		{
-			case "image/jpeg":$uploadVerification = true;	break;
-			case "image/png":	$uploadVerification = true;	break;
-			case "image/gif":	$uploadVerification = true;	break;
+			case "image/jpeg":$uploadVerification = true; $img_type="jpg";	break;
+			case "image/png":	$uploadVerification = true;	$img_type="png"; break;
+			case "image/gif":	$uploadVerification = true;	$img_type="gif"; break;
 			default: $uploadVerification = false;
 			$ret = "Sorry only jpg, png, and gif files are allowed!";
 		}
@@ -36,6 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
+		$target_file = $target_dir . $_SESSION['userid'] . $img_type; //NEW
 		if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);}
 
 		$sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
